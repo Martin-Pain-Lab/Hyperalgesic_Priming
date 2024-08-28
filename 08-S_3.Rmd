@@ -1,0 +1,137 @@
+---
+output: html_document
+---
+
+# Supplemental Figure 3 - Sex Differences in Hyperalgesic Priming {-}
+
+- Priming was **induced** by CFA.
+
+- **Expression** of priming was elicited by 100ng PGE-2 administration at the site of previous injury.
+
+```{r,include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning=FALSE,message=FALSE)
+library(tidyverse)
+library(reshape2)
+library(ggpubr)
+library(png)
+library(tinytable)
+library(rstatix)
+```
+
+```{r}
+data <- read.csv("Data/PGE2_CSV_R.csv") # Call in data
+
+data$CFA <- as.character(data$CFA) 
+data$CFA <- factor(data$CFA, levels=unique(data$CFA))
+
+data$Sex <- as.character(data$Sex)
+data$Sex <- factor(data$Sex,levels=c("Male","Female"))
+
+a <- data %>% 
+  filter (PGE2 == "PGE2")
+
+Left_data <- a[ ,c(1:3,5,7,9)]
+colnames(Left_data) <- c("ID","Sex","CFA","Post-CFA Baseline","3 hours","24 hours")
+m_Left <- melt(Left_data,id.vars=c("ID","Sex","CFA"))
+
+Right_data <- a[ ,c(1:2,4,6,8,10)]
+colnames(Right_data) <- c("ID","Sex","CFA","Post-CFA Baseline","3 hours","24 hours")
+m_Right <- melt(Right_data,id.vars = c("ID","Sex","CFA"))
+```
+
+```{r}
+# Graph: Group means with jitter across the timecourse 
+## Left paws only. 
+
+a <- m_Left %>% 
+  filter(CFA=="Naive")
+
+b <- a %>%
+  group_by(CFA,Sex,variable) %>% 
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n)) %>%
+  ggplot(aes(x=variable,y=mean,colour=Sex,group=Sex))+
+  geom_point(size=2,alpha=0.5)+
+  geom_line()+
+  geom_errorbar(aes(ymin=mean-se,ymax=mean+se),width=0.5)+
+  geom_jitter(data=a,aes(x=variable,y=value),width=0.25,height=0,size=2,alpha=0.15)+
+  scale_colour_manual(values = c("#256D7B", "#FC6C85"))+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(legend.position="none")+
+  theme(axis.text.x=element_text(angle=45, hjust=1))+
+  labs(y = "50% Withdrawal Threshold (g)",
+       x = "Time Since PGE-2 Injection",
+       title = "Naive")+
+   ylim(0,1.5)
+
+b <- b +
+  annotate("segment",x=1.25,y=.25,xend=1.25,yend= .65,colour="#669900",arrow=arrow(type="closed", length=unit(0.06,"npc")))+
+  annotate("text", x=1.25,y=.15,label="PGE-2", colour="#669900")
+
+c <- m_Left %>% 
+  filter(CFA=="CFA") 
+
+d <- c %>%
+  group_by(CFA,Sex,variable) %>% 
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n)) %>%
+  ggplot(aes(x=variable,y=mean,colour=Sex,group=Sex))+
+  geom_point(size=2,alpha=0.5,shape="triangle")+
+  geom_line()+
+  geom_errorbar(aes(ymin=mean-se,ymax=mean+se),width=0.5)+
+  geom_jitter(data=c,aes(x=variable,y=value),width=0.25,height=0,size=2,alpha=0.15,shape="triangle")+
+  scale_colour_manual(values = c("#256D7B", "#FC6C85"))+
+  theme_classic()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(legend.position="none")+
+  theme(axis.text.x=element_text(angle=45, hjust=1))+
+  labs(y = "50% Withdrawal Threshold (g)",
+       x = "Time Since PGE-2 Injection",
+       title="CFA Primed")+
+   ylim(0,1.5)
+
+d <- d + 
+  annotate("segment",x=1.25,y=.25,xend=1.25,yend= .65,colour="#669900",arrow=arrow(type="closed", length=unit(0.06,"npc")))+
+  annotate("text", x=1.25,y=.15,label="PGE-2", colour="#669900") +
+  annotate("text",x=3,y=0.45,label="***")
+
+A <- ggarrange(b,d,labels = c("A","B"))
+```
+
+## Published Image {-}
+
+```{r}
+# Make panel
+
+# ggsave("Figs/tiffs/S3_MvF_PGE2.tiff",A,height=3.5,width=5,dpi=700,bg="white",device="tiff")
+
+ggsave("Figs/S3_MvF_PGE2.png",A,height=3.5,width=5,dpi=300)
+
+knitr::include_graphics("Figs/S3_MvF_PGE2.png")
+```
+
+**Figure S3.** *Sex differences in PGE-2-induced expression of Hyperalgesic priming.* (A) There is no sex difference in the magnitude of mechanical sensitivity induced by PGE-2 administration in naive mice. (B) Among CFA-primed mice, males exhibit more sensitivity than females 24 hours post PGE-2 administration. Data expressed as mean value +/- SEM, \*\*\* indicates p \< 0.001.
+
+## Statistics {-}
+
+```{r,echo=TRUE}
+a <- m_Left[m_Left$CFA == "CFA", ]
+
+b <- m_Left %>%
+  filter(CFA == "CFA") %>%
+  group_by(variable) %>%
+  pairwise_t_test(value~Sex)
+
+tt(b)
+```
+
+- 24 hours after PGE-2 administration, CFA-primed males exhibit ongoing hypersensitivity, whereas CFA-primed females do not. 
+
+

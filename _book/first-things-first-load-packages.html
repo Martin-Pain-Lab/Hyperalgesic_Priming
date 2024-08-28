@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Figure 2 First thing’s first: Load packages | CFA Recovery</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Figure 2 First thing’s first: Load packages | CFA Recovery" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Figure 2 First thing’s first: Load packages | CFA Recovery" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="JLB" />
+
+
+<meta name="date" content="2024-08-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="figure-2---female-mice-homecage-behaviors-after-cfa.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pain Sensitization Book Of Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="male-mice-homecage-behaviors-after-cfa.html"><a href="male-mice-homecage-behaviors-after-cfa.html"><i class="fa fa-check"></i><b>1</b> Male Mice: Homecage Behaviors after CFA</a>
+<ul>
+<li class="chapter" data-level="" data-path="male-mice-homecage-behaviors-after-cfa.html"><a href="male-mice-homecage-behaviors-after-cfa.html#published-image"><i class="fa fa-check"></i>Published Image</a></li>
+<li class="chapter" data-level="" data-path="male-mice-homecage-behaviors-after-cfa.html"><a href="male-mice-homecage-behaviors-after-cfa.html#statistical-analyses"><i class="fa fa-check"></i>Statistical Analyses</a>
+<ul>
+<li class="chapter" data-level="" data-path="male-mice-homecage-behaviors-after-cfa.html"><a href="male-mice-homecage-behaviors-after-cfa.html#overall-manova-for-hc-behavs-for-males"><i class="fa fa-check"></i>Overall MANOVA for HC Behavs for males</a></li>
+<li class="chapter" data-level="" data-path="male-mice-homecage-behaviors-after-cfa.html"><a href="male-mice-homecage-behaviors-after-cfa.html#follow-up-analyses"><i class="fa fa-check"></i>Follow up analyses</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="figure-2---female-mice-homecage-behaviors-after-cfa.html"><a href="figure-2---female-mice-homecage-behaviors-after-cfa.html"><i class="fa fa-check"></i>Figure 2 - Female Mice: Homecage Behaviors after CFA</a>
+<ul>
+<li class="chapter" data-level="" data-path="figure-2---female-mice-homecage-behaviors-after-cfa.html"><a href="figure-2---female-mice-homecage-behaviors-after-cfa.html#published-image-1"><i class="fa fa-check"></i>Published Image</a></li>
+<li class="chapter" data-level="" data-path="figure-2---female-mice-homecage-behaviors-after-cfa.html"><a href="figure-2---female-mice-homecage-behaviors-after-cfa.html#statistical-analyses-1"><i class="fa fa-check"></i>Statistical Analyses</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="figure-2---female-mice-homecage-behaviors-after-cfa.html"><a href="figure-2---female-mice-homecage-behaviors-after-cfa.html#overall-manova-for-hc-behavs-for-females"><i class="fa fa-check"></i><b>1.0.1</b> Overall MANOVA for HC Behavs for females</a></li>
+<li class="chapter" data-level="1.0.2" data-path="figure-2---female-mice-homecage-behaviors-after-cfa.html"><a href="figure-2---female-mice-homecage-behaviors-after-cfa.html#follow-up"><i class="fa fa-check"></i><b>1.0.2</b> Follow up:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html"><i class="fa fa-check"></i><b>2</b> First thing’s first: Load packages</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#get-data-wrangle"><i class="fa fa-check"></i><b>2.1</b> Get Data &amp; Wrangle</a></li>
+<li class="chapter" data-level="2.2" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#define-functions"><i class="fa fa-check"></i><b>2.2</b> Define functions</a></li>
+<li class="chapter" data-level="2.3" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#cfa_recover_lines"><i class="fa fa-check"></i><b>2.3</b> CFA_Recover_Lines</a></li>
+<li class="chapter" data-level="2.4" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#individuals_lines"><i class="fa fa-check"></i><b>2.4</b> Individuals_lines</a></li>
+<li class="chapter" data-level="2.5" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#generate-charts"><i class="fa fa-check"></i><b>2.5</b> Generate charts</a></li>
+<li class="chapter" data-level="2.6" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#build-the-panel"><i class="fa fa-check"></i><b>2.6</b> Build the panel:</a></li>
+<li class="chapter" data-level="2.7" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#call-in-cartoons"><i class="fa fa-check"></i><b>2.7</b> Call in cartoons</a></li>
+<li class="chapter" data-level="2.8" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#add-significance-indicators-to-left-paw-graphs."><i class="fa fa-check"></i><b>2.8</b> Add significance indicators to left paw graphs.</a></li>
+<li class="chapter" data-level="2.9" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#arrange-pieces-of-the-fig.1-panel"><i class="fa fa-check"></i><b>2.9</b> Arrange pieces of the Fig.1 Panel</a></li>
+<li class="chapter" data-level="2.10" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#save-the-panel-as-a-high-quality-.png-image"><i class="fa fa-check"></i><b>2.10</b> Save the Panel as a high quality .png image</a></li>
+<li class="chapter" data-level="2.11" data-path="first-things-first-load-packages.html"><a href="first-things-first-load-packages.html#statistical-analyses-2"><i class="fa fa-check"></i><b>2.11</b> Statistical Analyses</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CFA Recovery</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="first-things-first-load-packages" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Figure 2</span> First thing’s first: Load packages<a href="first-things-first-load-packages.html#first-things-first-load-packages" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="first-things-first-load-packages.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># For tidy text</span></span>
+<span id="cb2-2"><a href="first-things-first-load-packages.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(reshape2) <span class="co"># For melting</span></span>
+<span id="cb2-3"><a href="first-things-first-load-packages.html#cb2-3" tabindex="-1"></a><span class="fu">library</span>(ggpubr) <span class="co"># For making panels</span></span>
+<span id="cb2-4"><a href="first-things-first-load-packages.html#cb2-4" tabindex="-1"></a><span class="fu">library</span>(png) <span class="co"># To call in .png images</span></span>
+<span id="cb2-5"><a href="first-things-first-load-packages.html#cb2-5" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># for Stats</span></span></code></pre></div>
+<div id="get-data-wrangle" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Get Data &amp; Wrangle<a href="first-things-first-load-packages.html#get-data-wrangle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Goal: create separte left and right data frames with the same column headers (the days of testing)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="first-things-first-load-packages.html#cb3-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/CSV_4_R.csv&quot;</span>)</span>
+<span id="cb3-2"><a href="first-things-first-load-packages.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="first-things-first-load-packages.html#cb3-3" tabindex="-1"></a>data<span class="sc">$</span>CFA <span class="ot">&lt;-</span> <span class="fu">as.character</span>(data<span class="sc">$</span>CFA)</span>
+<span id="cb3-4"><a href="first-things-first-load-packages.html#cb3-4" tabindex="-1"></a>data<span class="sc">$</span>CFA <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>CFA, <span class="at">levels=</span><span class="fu">unique</span>(data<span class="sc">$</span>CFA))</span>
+<span id="cb3-5"><a href="first-things-first-load-packages.html#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="first-things-first-load-packages.html#cb3-6" tabindex="-1"></a>female_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data[data<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, ])</span>
+<span id="cb3-7"><a href="first-things-first-load-packages.html#cb3-7" tabindex="-1"></a>female_left <span class="ot">&lt;-</span> <span class="fu">subset</span>(female_data[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb3-8"><a href="first-things-first-load-packages.html#cb3-8" tabindex="-1"></a>female_left<span class="sc">$</span>hr_24 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>hr_24.L</span>
+<span id="cb3-9"><a href="first-things-first-load-packages.html#cb3-9" tabindex="-1"></a>female_left<span class="sc">$</span>days_3 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>days_3.L</span>
+<span id="cb3-10"><a href="first-things-first-load-packages.html#cb3-10" tabindex="-1"></a>female_left<span class="sc">$</span>days_7 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>days_7.L</span>
+<span id="cb3-11"><a href="first-things-first-load-packages.html#cb3-11" tabindex="-1"></a>female_right <span class="ot">&lt;-</span> <span class="fu">subset</span>(female_data[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> ])</span>
+<span id="cb3-12"><a href="first-things-first-load-packages.html#cb3-12" tabindex="-1"></a>female_right<span class="sc">$</span>Baseline <span class="ot">&lt;-</span> female_data<span class="sc">$</span>BL_R</span>
+<span id="cb3-13"><a href="first-things-first-load-packages.html#cb3-13" tabindex="-1"></a>female_right<span class="sc">$</span>hr_24 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>hr_24.R</span>
+<span id="cb3-14"><a href="first-things-first-load-packages.html#cb3-14" tabindex="-1"></a>female_right<span class="sc">$</span>days_3 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>days_3.R</span>
+<span id="cb3-15"><a href="first-things-first-load-packages.html#cb3-15" tabindex="-1"></a>female_right<span class="sc">$</span>days_7 <span class="ot">&lt;-</span> female_data<span class="sc">$</span>days_7.R</span>
+<span id="cb3-16"><a href="first-things-first-load-packages.html#cb3-16" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="first-things-first-load-packages.html#cb3-17" tabindex="-1"></a>male_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data[data<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;Male&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, ])</span>
+<span id="cb3-18"><a href="first-things-first-load-packages.html#cb3-18" tabindex="-1"></a>male_left <span class="ot">&lt;-</span> <span class="fu">subset</span>(male_data[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb3-19"><a href="first-things-first-load-packages.html#cb3-19" tabindex="-1"></a>male_left<span class="sc">$</span>hr_24 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>hr_24.L</span>
+<span id="cb3-20"><a href="first-things-first-load-packages.html#cb3-20" tabindex="-1"></a>male_left<span class="sc">$</span>days_3 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>days_3.L</span>
+<span id="cb3-21"><a href="first-things-first-load-packages.html#cb3-21" tabindex="-1"></a>male_left<span class="sc">$</span>days_7 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>days_7.L</span>
+<span id="cb3-22"><a href="first-things-first-load-packages.html#cb3-22" tabindex="-1"></a>male_right <span class="ot">&lt;-</span> <span class="fu">subset</span>(male_data[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb3-23"><a href="first-things-first-load-packages.html#cb3-23" tabindex="-1"></a>male_right<span class="sc">$</span>Baseline <span class="ot">&lt;-</span> male_data<span class="sc">$</span>BL_R</span>
+<span id="cb3-24"><a href="first-things-first-load-packages.html#cb3-24" tabindex="-1"></a>male_right<span class="sc">$</span>hr_24 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>hr_24.R</span>
+<span id="cb3-25"><a href="first-things-first-load-packages.html#cb3-25" tabindex="-1"></a>male_right<span class="sc">$</span>days_3 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>days_3.R</span>
+<span id="cb3-26"><a href="first-things-first-load-packages.html#cb3-26" tabindex="-1"></a>male_right<span class="sc">$</span>days_7 <span class="ot">&lt;-</span> male_data<span class="sc">$</span>days_7.R</span></code></pre></div>
+</div>
+<div id="define-functions" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Define functions<a href="first-things-first-load-packages.html#define-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Write two functions: One for absolute VF values, the second for % Baseline.</li>
+<li>Use these functions repeatedly to create 8 (total) charts for the panel.</li>
+</ul>
+</div>
+<div id="cfa_recover_lines" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> CFA_Recover_Lines<a href="first-things-first-load-packages.html#cfa_recover_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="first-things-first-load-packages.html#cb4-1" tabindex="-1"></a>CFA_Recover_Lines <span class="ot">&lt;-</span> <span class="cf">function</span>(input,sex_colour){</span>
+<span id="cb4-2"><a href="first-things-first-load-packages.html#cb4-2" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="first-things-first-load-packages.html#cb4-3" tabindex="-1"></a><span class="fu">colnames</span>(input) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb4-4"><a href="first-things-first-load-packages.html#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="first-things-first-load-packages.html#cb4-5" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">subset</span>(input[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb4-6"><a href="first-things-first-load-packages.html#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="first-things-first-load-packages.html#cb4-7" tabindex="-1"></a>means <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="first-things-first-load-packages.html#cb4-8" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">CFA</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="first-things-first-load-packages.html#cb4-9" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">vars</span>(<span class="st">`</span><span class="at">Baseline</span><span class="st">`</span>, <span class="st">`</span><span class="at">24 hr</span><span class="st">`</span>, <span class="st">`</span><span class="at">3 days</span><span class="st">`</span>, <span class="st">`</span><span class="at">7 days</span><span class="st">`</span>), <span class="fu">list</span>(<span class="at">name=</span>mean))</span>
+<span id="cb4-10"><a href="first-things-first-load-packages.html#cb4-10" tabindex="-1"></a><span class="fu">colnames</span>(means) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb4-11"><a href="first-things-first-load-packages.html#cb4-11" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(means)</span>
+<span id="cb4-12"><a href="first-things-first-load-packages.html#cb4-12" tabindex="-1"></a>m_means <span class="ot">&lt;-</span> <span class="fu">melt</span>(means)</span>
+<span id="cb4-13"><a href="first-things-first-load-packages.html#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="first-things-first-load-packages.html#cb4-14" tabindex="-1"></a>sd <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb4-15"><a href="first-things-first-load-packages.html#cb4-15" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">CFA</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-16"><a href="first-things-first-load-packages.html#cb4-16" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">vars</span>(<span class="st">`</span><span class="at">Baseline</span><span class="st">`</span>, <span class="st">`</span><span class="at">24 hr</span><span class="st">`</span>, <span class="st">`</span><span class="at">3 days</span><span class="st">`</span>, <span class="st">`</span><span class="at">7 days</span><span class="st">`</span>), <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;sd&quot;</span>))</span>
+<span id="cb4-17"><a href="first-things-first-load-packages.html#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="first-things-first-load-packages.html#cb4-18" tabindex="-1"></a>se <span class="ot">&lt;-</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">15</span>)</span>
+<span id="cb4-19"><a href="first-things-first-load-packages.html#cb4-19" tabindex="-1"></a>se<span class="sc">$</span>CFA <span class="ot">&lt;-</span> sd<span class="sc">$</span>CFA</span>
+<span id="cb4-20"><a href="first-things-first-load-packages.html#cb4-20" tabindex="-1"></a><span class="fu">colnames</span>(se) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb4-21"><a href="first-things-first-load-packages.html#cb4-21" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(se)</span>
+<span id="cb4-22"><a href="first-things-first-load-packages.html#cb4-22" tabindex="-1"></a>m_se <span class="ot">&lt;-</span> <span class="fu">melt</span>(se)</span>
+<span id="cb4-23"><a href="first-things-first-load-packages.html#cb4-23" tabindex="-1"></a>m_se<span class="sc">$</span>mean <span class="ot">&lt;-</span> m_means<span class="sc">$</span>value</span>
+<span id="cb4-24"><a href="first-things-first-load-packages.html#cb4-24" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="first-things-first-load-packages.html#cb4-25" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">subset</span>(a[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb4-26"><a href="first-things-first-load-packages.html#cb4-26" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(a)</span>
+<span id="cb4-27"><a href="first-things-first-load-packages.html#cb4-27" tabindex="-1"></a>m_a <span class="ot">&lt;-</span> <span class="fu">melt</span>(a)</span>
+<span id="cb4-28"><a href="first-things-first-load-packages.html#cb4-28" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="first-things-first-load-packages.html#cb4-29" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb4-30"><a href="first-things-first-load-packages.html#cb4-30" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>m_means, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>value, <span class="at">group=</span>CFA, <span class="at">colour=</span>CFA), <span class="at">alpha=</span><span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb4-31"><a href="first-things-first-load-packages.html#cb4-31" tabindex="-1"></a>    <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(sex_colour, <span class="st">&quot;#800020&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-32"><a href="first-things-first-load-packages.html#cb4-32" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>m_means, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>value, <span class="at">colour=</span>CFA, <span class="at">shape=</span>CFA), <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb4-33"><a href="first-things-first-load-packages.html#cb4-33" tabindex="-1"></a>    <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(sex_colour, <span class="st">&quot;#800020&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-34"><a href="first-things-first-load-packages.html#cb4-34" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data=</span>m_a, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>value, <span class="at">group=</span>CFA, <span class="at">colour=</span>CFA, <span class="at">shape=</span>CFA), <span class="at">width=</span><span class="fl">0.25</span>,<span class="at">height=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">alpha=</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb4-35"><a href="first-things-first-load-packages.html#cb4-35" tabindex="-1"></a>    <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(sex_colour, <span class="st">&quot;#800020&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-36"><a href="first-things-first-load-packages.html#cb4-36" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>m_se, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">ymin=</span>mean<span class="sc">-</span>value, <span class="at">ymax=</span>mean<span class="sc">+</span>value, <span class="at">colour=</span>CFA), <span class="at">width=</span><span class="fl">0.75</span>, <span class="at">alpha=</span><span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb4-37"><a href="first-things-first-load-packages.html#cb4-37" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(sex_colour, <span class="st">&quot;#800020&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-38"><a href="first-things-first-load-packages.html#cb4-38" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb4-39"><a href="first-things-first-load-packages.html#cb4-39" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>))<span class="sc">+</span></span>
+<span id="cb4-40"><a href="first-things-first-load-packages.html#cb4-40" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb4-41"><a href="first-things-first-load-packages.html#cb4-41" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb4-42"><a href="first-things-first-load-packages.html#cb4-42" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-43"><a href="first-things-first-load-packages.html#cb4-43" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-44"><a href="first-things-first-load-packages.html#cb4-44" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-45"><a href="first-things-first-load-packages.html#cb4-45" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-46"><a href="first-things-first-load-packages.html#cb4-46" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb4-47"><a href="first-things-first-load-packages.html#cb4-47" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-48"><a href="first-things-first-load-packages.html#cb4-48" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb4-49"><a href="first-things-first-load-packages.html#cb4-49" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;50% Withdrawal Threshold (g)&quot;</span>,</span>
+<span id="cb4-50"><a href="first-things-first-load-packages.html#cb4-50" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb4-51"><a href="first-things-first-load-packages.html#cb4-51" tabindex="-1"></a>       <span class="at">title=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb4-52"><a href="first-things-first-load-packages.html#cb4-52" tabindex="-1"></a>       )<span class="sc">+</span></span>
+<span id="cb4-53"><a href="first-things-first-load-packages.html#cb4-53" tabindex="-1"></a>   <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb4-54"><a href="first-things-first-load-packages.html#cb4-54" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="first-things-first-load-packages.html#cb4-55" tabindex="-1"></a><span class="fu">return</span>(b)</span>
+<span id="cb4-56"><a href="first-things-first-load-packages.html#cb4-56" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="individuals_lines" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Individuals_lines<a href="first-things-first-load-packages.html#individuals_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="first-things-first-load-packages.html#cb5-1" tabindex="-1"></a>individuals_lines <span class="ot">&lt;-</span> <span class="cf">function</span>(input,sex_colour){</span>
+<span id="cb5-2"><a href="first-things-first-load-packages.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="first-things-first-load-packages.html#cb5-3" tabindex="-1"></a>  <span class="fu">colnames</span>(input) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb5-4"><a href="first-things-first-load-packages.html#cb5-4" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">subset</span>(input[<span class="sc">-</span><span class="dv">2</span>])</span>
+<span id="cb5-5"><a href="first-things-first-load-packages.html#cb5-5" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(a)</span>
+<span id="cb5-6"><a href="first-things-first-load-packages.html#cb5-6" tabindex="-1"></a>  b<span class="sc">$</span><span class="st">`</span><span class="at">24 hr</span><span class="st">`</span> <span class="ot">&lt;-</span> (b<span class="sc">$</span><span class="st">`</span><span class="at">24 hr</span><span class="st">`</span><span class="sc">/</span>b<span class="sc">$</span>Baseline)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb5-7"><a href="first-things-first-load-packages.html#cb5-7" tabindex="-1"></a>  b<span class="sc">$</span><span class="st">`</span><span class="at">3 days</span><span class="st">`</span> <span class="ot">&lt;-</span> (b<span class="sc">$</span><span class="st">`</span><span class="at">3 days</span><span class="st">`</span><span class="sc">/</span>b<span class="sc">$</span>Baseline)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb5-8"><a href="first-things-first-load-packages.html#cb5-8" tabindex="-1"></a>  b<span class="sc">$</span><span class="st">`</span><span class="at">7 days</span><span class="st">`</span> <span class="ot">&lt;-</span> (b<span class="sc">$</span><span class="st">`</span><span class="at">7 days</span><span class="st">`</span><span class="sc">/</span>b<span class="sc">$</span>Baseline)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb5-9"><a href="first-things-first-load-packages.html#cb5-9" tabindex="-1"></a>  b<span class="sc">$</span>Baseline <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb5-10"><a href="first-things-first-load-packages.html#cb5-10" tabindex="-1"></a>  c <span class="ot">&lt;-</span> <span class="fu">melt</span>(b, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;CFA&quot;</span>))</span>
+<span id="cb5-11"><a href="first-things-first-load-packages.html#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="first-things-first-load-packages.html#cb5-12" tabindex="-1"></a>means <span class="ot">&lt;-</span> b <span class="sc">%&gt;%</span> </span>
+<span id="cb5-13"><a href="first-things-first-load-packages.html#cb5-13" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">CFA</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="first-things-first-load-packages.html#cb5-14" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">vars</span>(<span class="st">`</span><span class="at">Baseline</span><span class="st">`</span>, <span class="st">`</span><span class="at">24 hr</span><span class="st">`</span>, <span class="st">`</span><span class="at">3 days</span><span class="st">`</span>, <span class="st">`</span><span class="at">7 days</span><span class="st">`</span>), <span class="fu">list</span>(<span class="at">name=</span>mean))</span>
+<span id="cb5-15"><a href="first-things-first-load-packages.html#cb5-15" tabindex="-1"></a><span class="fu">colnames</span>(means) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb5-16"><a href="first-things-first-load-packages.html#cb5-16" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(means)</span>
+<span id="cb5-17"><a href="first-things-first-load-packages.html#cb5-17" tabindex="-1"></a>m_means <span class="ot">&lt;-</span> <span class="fu">melt</span>(means)</span>
+<span id="cb5-18"><a href="first-things-first-load-packages.html#cb5-18" tabindex="-1"></a>  </span>
+<span id="cb5-19"><a href="first-things-first-load-packages.html#cb5-19" tabindex="-1"></a>sd <span class="ot">&lt;-</span> b <span class="sc">%&gt;%</span></span>
+<span id="cb5-20"><a href="first-things-first-load-packages.html#cb5-20" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">CFA</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="first-things-first-load-packages.html#cb5-21" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">vars</span>(<span class="st">`</span><span class="at">Baseline</span><span class="st">`</span>, <span class="st">`</span><span class="at">24 hr</span><span class="st">`</span>, <span class="st">`</span><span class="at">3 days</span><span class="st">`</span>, <span class="st">`</span><span class="at">7 days</span><span class="st">`</span>), <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;sd&quot;</span>))</span>
+<span id="cb5-22"><a href="first-things-first-load-packages.html#cb5-22" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="first-things-first-load-packages.html#cb5-23" tabindex="-1"></a>se <span class="ot">&lt;-</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">7</span>)</span>
+<span id="cb5-24"><a href="first-things-first-load-packages.html#cb5-24" tabindex="-1"></a>se<span class="sc">$</span>CFA <span class="ot">&lt;-</span> sd<span class="sc">$</span>CFA</span>
+<span id="cb5-25"><a href="first-things-first-load-packages.html#cb5-25" tabindex="-1"></a><span class="fu">colnames</span>(se) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CFA&quot;</span>, <span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;24 hr&quot;</span>, <span class="st">&quot;3 days&quot;</span>, <span class="st">&quot;7 days&quot;</span>)</span>
+<span id="cb5-26"><a href="first-things-first-load-packages.html#cb5-26" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(se)</span>
+<span id="cb5-27"><a href="first-things-first-load-packages.html#cb5-27" tabindex="-1"></a>se<span class="sc">$</span>CFA <span class="ot">&lt;-</span> sd<span class="sc">$</span>CFA</span>
+<span id="cb5-28"><a href="first-things-first-load-packages.html#cb5-28" tabindex="-1"></a>m_se <span class="ot">&lt;-</span> <span class="fu">melt</span>(se)</span>
+<span id="cb5-29"><a href="first-things-first-load-packages.html#cb5-29" tabindex="-1"></a>m_se<span class="sc">$</span>mean <span class="ot">&lt;-</span> m_means<span class="sc">$</span>value  </span>
+<span id="cb5-30"><a href="first-things-first-load-packages.html#cb5-30" tabindex="-1"></a>  </span>
+<span id="cb5-31"><a href="first-things-first-load-packages.html#cb5-31" tabindex="-1"></a>    </span>
+<span id="cb5-32"><a href="first-things-first-load-packages.html#cb5-32" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>c, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>value, <span class="at">colour=</span>CFA))<span class="sc">+</span></span>
+<span id="cb5-33"><a href="first-things-first-load-packages.html#cb5-33" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>c, <span class="at">group=</span>c<span class="sc">$</span>ID, <span class="at">size=</span>.<span class="dv">8</span>, <span class="at">alpha=</span><span class="fl">0.25</span>)<span class="sc">+</span></span>
+<span id="cb5-34"><a href="first-things-first-load-packages.html#cb5-34" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(sex_colour, <span class="st">&quot;#800020&quot;</span>))<span class="sc">+</span></span>
+<span id="cb5-35"><a href="first-things-first-load-packages.html#cb5-35" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>m_se, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>mean, <span class="at">shape =</span> CFA), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha=</span><span class="fl">0.9</span>)<span class="sc">+</span></span>
+<span id="cb5-36"><a href="first-things-first-load-packages.html#cb5-36" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>m_se, <span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">ymin=</span>mean<span class="sc">-</span>value, <span class="at">ymax=</span>mean<span class="sc">+</span>value), <span class="at">alpha =</span><span class="fl">0.9</span>, <span class="at">width=</span><span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb5-37"><a href="first-things-first-load-packages.html#cb5-37" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb5-38"><a href="first-things-first-load-packages.html#cb5-38" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb5-39"><a href="first-things-first-load-packages.html#cb5-39" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;left&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-40"><a href="first-things-first-load-packages.html#cb5-40" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-41"><a href="first-things-first-load-packages.html#cb5-41" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-42"><a href="first-things-first-load-packages.html#cb5-42" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-43"><a href="first-things-first-load-packages.html#cb5-43" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y=</span><span class="fu">element_text</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-44"><a href="first-things-first-load-packages.html#cb5-44" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb5-45"><a href="first-things-first-load-packages.html#cb5-45" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-46"><a href="first-things-first-load-packages.html#cb5-46" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour=</span>sex_colour))<span class="sc">+</span></span>
+<span id="cb5-47"><a href="first-things-first-load-packages.html#cb5-47" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-48"><a href="first-things-first-load-packages.html#cb5-48" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">100</span>, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">colour=</span>sex_colour)<span class="sc">+</span></span>
+<span id="cb5-49"><a href="first-things-first-load-packages.html#cb5-49" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot; &quot;</span>,</span>
+<span id="cb5-50"><a href="first-things-first-load-packages.html#cb5-50" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;% Baseline&quot;</span>,</span>
+<span id="cb5-51"><a href="first-things-first-load-packages.html#cb5-51" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-52"><a href="first-things-first-load-packages.html#cb5-52" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">200</span>)</span>
+<span id="cb5-53"><a href="first-things-first-load-packages.html#cb5-53" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="first-things-first-load-packages.html#cb5-54" tabindex="-1"></a><span class="fu">return</span>(d)</span>
+<span id="cb5-55"><a href="first-things-first-load-packages.html#cb5-55" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="generate-charts" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Generate charts<a href="first-things-first-load-packages.html#generate-charts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="first-things-first-load-packages.html#cb6-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">CFA_Recover_Lines</span>(female_left, <span class="st">&quot;#FC6C85&quot;</span>)</span>
+<span id="cb6-2"><a href="first-things-first-load-packages.html#cb6-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">CFA_Recover_Lines</span>(female_right, <span class="st">&quot;#FC6C85&quot;</span>)</span>
+<span id="cb6-3"><a href="first-things-first-load-packages.html#cb6-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">CFA_Recover_Lines</span>(male_left, <span class="st">&quot;#256D7B&quot;</span>)</span>
+<span id="cb6-4"><a href="first-things-first-load-packages.html#cb6-4" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">CFA_Recover_Lines</span>(male_right, <span class="st">&quot;#256D7B&quot;</span>)</span>
+<span id="cb6-5"><a href="first-things-first-load-packages.html#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="first-things-first-load-packages.html#cb6-6" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">individuals_lines</span>(female_left, <span class="st">&quot;#FC6C85&quot;</span>)</span>
+<span id="cb6-7"><a href="first-things-first-load-packages.html#cb6-7" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">individuals_lines</span>(female_right, <span class="st">&quot;#FC6C85&quot;</span>)</span>
+<span id="cb6-8"><a href="first-things-first-load-packages.html#cb6-8" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">individuals_lines</span>(male_left, <span class="st">&quot;#256D7B&quot;</span>)</span>
+<span id="cb6-9"><a href="first-things-first-load-packages.html#cb6-9" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">individuals_lines</span>(male_right, <span class="st">&quot;#256D7B&quot;</span>)</span></code></pre></div>
+</div>
+<div id="build-the-panel" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Build the panel:<a href="first-things-first-load-packages.html#build-the-panel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="call-in-cartoons" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Call in cartoons<a href="first-things-first-load-packages.html#call-in-cartoons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="first-things-first-load-packages.html#cb7-1" tabindex="-1"></a>timeline <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">&quot;cartoons/fig.1_timeline.png&quot;</span>)</span>
+<span id="cb7-2"><a href="first-things-first-load-packages.html#cb7-2" tabindex="-1"></a>mouse <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">&quot;cartoons/fig.1_mouse.png&quot;</span>)</span>
+<span id="cb7-3"><a href="first-things-first-load-packages.html#cb7-3" tabindex="-1"></a>VF <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">&quot;cartoons/fig.1_VF.png&quot;</span>)</span>
+<span id="cb7-4"><a href="first-things-first-load-packages.html#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="first-things-first-load-packages.html#cb7-5" tabindex="-1"></a>AA <span class="ot">&lt;-</span> <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb7-6"><a href="first-things-first-load-packages.html#cb7-6" tabindex="-1"></a>  <span class="fu">background_image</span>(timeline)<span class="sc">+</span></span>
+<span id="cb7-7"><a href="first-things-first-load-packages.html#cb7-7" tabindex="-1"></a>  <span class="fu">coord_equal</span>(<span class="at">ratio=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb7-8"><a href="first-things-first-load-packages.html#cb7-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#FFFFFF&quot;</span>,<span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))<span class="sc">+</span></span>
+<span id="cb7-9"><a href="first-things-first-load-packages.html#cb7-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))</span>
+<span id="cb7-10"><a href="first-things-first-load-packages.html#cb7-10" tabindex="-1"></a>AB <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-11"><a href="first-things-first-load-packages.html#cb7-11" tabindex="-1"></a>  <span class="fu">background_image</span>(mouse)<span class="sc">+</span></span>
+<span id="cb7-12"><a href="first-things-first-load-packages.html#cb7-12" tabindex="-1"></a>  <span class="fu">coord_equal</span>(<span class="at">ratio=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb7-13"><a href="first-things-first-load-packages.html#cb7-13" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#FFFFFF&quot;</span>,<span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))<span class="sc">+</span></span>
+<span id="cb7-14"><a href="first-things-first-load-packages.html#cb7-14" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))</span>
+<span id="cb7-15"><a href="first-things-first-load-packages.html#cb7-15" tabindex="-1"></a>AC <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-16"><a href="first-things-first-load-packages.html#cb7-16" tabindex="-1"></a>  <span class="fu">background_image</span>(VF)<span class="sc">+</span></span>
+<span id="cb7-17"><a href="first-things-first-load-packages.html#cb7-17" tabindex="-1"></a>  <span class="fu">coord_equal</span>(<span class="at">ratio=</span><span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb7-18"><a href="first-things-first-load-packages.html#cb7-18" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;#FFFFFF&quot;</span>,<span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))<span class="sc">+</span></span>
+<span id="cb7-19"><a href="first-things-first-load-packages.html#cb7-19" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#FFFFFF&quot;</span>))</span>
+<span id="cb7-20"><a href="first-things-first-load-packages.html#cb7-20" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="first-things-first-load-packages.html#cb7-21" tabindex="-1"></a>cartoons <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(AA,AB,AC,</span>
+<span id="cb7-22"><a href="first-things-first-load-packages.html#cb7-22" tabindex="-1"></a>                      <span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">3</span>,</span>
+<span id="cb7-23"><a href="first-things-first-load-packages.html#cb7-23" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>))</span>
+<span id="cb7-24"><a href="first-things-first-load-packages.html#cb7-24" tabindex="-1"></a>cartoons</span></code></pre></div>
+<p><img src="_main_files/figure-html/cartoons-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="add-significance-indicators-to-left-paw-graphs." class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Add significance indicators to left paw graphs.<a href="first-things-first-load-packages.html#add-significance-indicators-to-left-paw-graphs." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="first-things-first-load-packages.html#cb8-1" tabindex="-1"></a>C <span class="ot">&lt;-</span> c <span class="sc">+</span></span>
+<span id="cb8-2"><a href="first-things-first-load-packages.html#cb8-2" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>,<span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span>.<span class="dv">15</span>,<span class="at">xend=</span><span class="dv">1</span>,<span class="at">yend=</span> .<span class="dv">65</span>,<span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>,<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">type=</span><span class="st">&quot;closed&quot;</span>, <span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.06</span>,<span class="st">&quot;npc&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb8-3"><a href="first-things-first-load-packages.html#cb8-3" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span>.<span class="dv">05</span>,<span class="at">label=</span><span class="st">&quot;CFA&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-4"><a href="first-things-first-load-packages.html#cb8-4" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">x=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.15</span>),<span class="at">label=</span><span class="fu">c</span>(<span class="st">&quot;***&quot;</span>),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb8-5"><a href="first-things-first-load-packages.html#cb8-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.8</span>),<span class="at">legend.position=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb8-6"><a href="first-things-first-load-packages.html#cb8-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background=</span><span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;transparent&quot;</span>))<span class="sc">+</span></span>
+<span id="cb8-7"><a href="first-things-first-load-packages.html#cb8-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">&quot; &quot;</span>,</span>
+<span id="cb8-8"><a href="first-things-first-load-packages.html#cb8-8" tabindex="-1"></a>       <span class="at">shape=</span><span class="st">&quot; &quot;</span>)</span>
+<span id="cb8-9"><a href="first-things-first-load-packages.html#cb8-9" tabindex="-1"></a> </span>
+<span id="cb8-10"><a href="first-things-first-load-packages.html#cb8-10" tabindex="-1"></a>G <span class="ot">&lt;-</span> g <span class="sc">+</span> </span>
+<span id="cb8-11"><a href="first-things-first-load-packages.html#cb8-11" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>,<span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span><span class="dv">15</span>,<span class="at">xend=</span><span class="dv">1</span>,<span class="at">yend=</span> <span class="dv">65</span>,<span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>,<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">type=</span><span class="st">&quot;closed&quot;</span>, <span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.06</span>,<span class="st">&quot;npc&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb8-12"><a href="first-things-first-load-packages.html#cb8-12" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span><span class="dv">5</span>,<span class="at">label=</span><span class="st">&quot;CFA&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-13"><a href="first-things-first-load-packages.html#cb8-13" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">x=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),<span class="at">label=</span><span class="fu">c</span>(<span class="st">&quot;***&quot;</span>),<span class="at">size=</span><span class="dv">4</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)</span>
+<span id="cb8-14"><a href="first-things-first-load-packages.html#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="first-things-first-load-packages.html#cb8-15" tabindex="-1"></a>A <span class="ot">&lt;-</span> a <span class="sc">+</span></span>
+<span id="cb8-16"><a href="first-things-first-load-packages.html#cb8-16" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>,<span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span>.<span class="dv">15</span>,<span class="at">xend=</span><span class="dv">1</span>,<span class="at">yend=</span> .<span class="dv">65</span>,<span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>,<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">type=</span><span class="st">&quot;closed&quot;</span>, <span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.06</span>,<span class="st">&quot;npc&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb8-17"><a href="first-things-first-load-packages.html#cb8-17" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span>.<span class="dv">05</span>,<span class="at">label=</span><span class="st">&quot;CFA&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-18"><a href="first-things-first-load-packages.html#cb8-18" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.8</span>),<span class="at">legend.position=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb8-19"><a href="first-things-first-load-packages.html#cb8-19" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background=</span><span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;transparent&quot;</span>))<span class="sc">+</span></span>
+<span id="cb8-20"><a href="first-things-first-load-packages.html#cb8-20" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">&quot; &quot;</span>,</span>
+<span id="cb8-21"><a href="first-things-first-load-packages.html#cb8-21" tabindex="-1"></a>       <span class="at">shape=</span><span class="st">&quot; &quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-22"><a href="first-things-first-load-packages.html#cb8-22" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">x=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.1</span>),<span class="at">label=</span><span class="fu">c</span>(<span class="st">&quot;***&quot;</span>),<span class="at">size=</span><span class="dv">4</span>)</span>
+<span id="cb8-23"><a href="first-things-first-load-packages.html#cb8-23" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="first-things-first-load-packages.html#cb8-24" tabindex="-1"></a>E <span class="ot">&lt;-</span> e <span class="sc">+</span> </span>
+<span id="cb8-25"><a href="first-things-first-load-packages.html#cb8-25" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>,<span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span><span class="dv">15</span>,<span class="at">xend=</span><span class="dv">1</span>,<span class="at">yend=</span> <span class="dv">65</span>,<span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>,<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">type=</span><span class="st">&quot;closed&quot;</span>, <span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.06</span>,<span class="st">&quot;npc&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb8-26"><a href="first-things-first-load-packages.html#cb8-26" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="dv">1</span>,<span class="at">y=</span><span class="dv">5</span>,<span class="at">label=</span><span class="st">&quot;CFA&quot;</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-27"><a href="first-things-first-load-packages.html#cb8-27" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">x=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),<span class="at">label=</span><span class="fu">c</span>(<span class="st">&quot;***&quot;</span>),<span class="at">size=</span><span class="dv">4</span>, <span class="at">colour=</span><span class="st">&quot;#800020&quot;</span>)</span></code></pre></div>
+</div>
+<div id="arrange-pieces-of-the-fig.1-panel" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Arrange pieces of the Fig.1 Panel<a href="first-things-first-load-packages.html#arrange-pieces-of-the-fig.1-panel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="first-things-first-load-packages.html#cb9-1" tabindex="-1"></a>M_L <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(C,G,</span>
+<span id="cb9-2"><a href="first-things-first-load-packages.html#cb9-2" tabindex="-1"></a>                 <span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb9-3"><a href="first-things-first-load-packages.html#cb9-3" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>))</span>
+<span id="cb9-4"><a href="first-things-first-load-packages.html#cb9-4" tabindex="-1"></a>M_L <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(M_L, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Left (injected) Paw&quot;</span>, <span class="at">color=</span><span class="st">&quot;#256D7B&quot;</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;12&quot;</span>))</span>
+<span id="cb9-5"><a href="first-things-first-load-packages.html#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="first-things-first-load-packages.html#cb9-6" tabindex="-1"></a>M_R <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(d,h,</span>
+<span id="cb9-7"><a href="first-things-first-load-packages.html#cb9-7" tabindex="-1"></a>                 <span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb9-8"><a href="first-things-first-load-packages.html#cb9-8" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>))</span>
+<span id="cb9-9"><a href="first-things-first-load-packages.html#cb9-9" tabindex="-1"></a>M_R <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(M_R, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Right (not injected) Paw&quot;</span>, <span class="at">color=</span><span class="st">&quot;#256D7B&quot;</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;12&quot;</span>))</span>
+<span id="cb9-10"><a href="first-things-first-load-packages.html#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="first-things-first-load-packages.html#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="first-things-first-load-packages.html#cb9-12" tabindex="-1"></a>F_L <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(A,E,</span>
+<span id="cb9-13"><a href="first-things-first-load-packages.html#cb9-13" tabindex="-1"></a>                 <span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb9-14"><a href="first-things-first-load-packages.html#cb9-14" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>))</span>
+<span id="cb9-15"><a href="first-things-first-load-packages.html#cb9-15" tabindex="-1"></a>F_L <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(F_L, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Left (injected) Paw&quot;</span>, <span class="at">color=</span><span class="st">&quot;#FC6C85&quot;</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;12&quot;</span>))</span>
+<span id="cb9-16"><a href="first-things-first-load-packages.html#cb9-16" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="first-things-first-load-packages.html#cb9-17" tabindex="-1"></a>F_R <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(b,f,</span>
+<span id="cb9-18"><a href="first-things-first-load-packages.html#cb9-18" tabindex="-1"></a>                 <span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb9-19"><a href="first-things-first-load-packages.html#cb9-19" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;J&quot;</span>,<span class="st">&quot;K&quot;</span>))</span>
+<span id="cb9-20"><a href="first-things-first-load-packages.html#cb9-20" tabindex="-1"></a>F_R <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(F_R, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Right (not injected) Paw&quot;</span>, <span class="at">color=</span><span class="st">&quot;#FC6C85&quot;</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;12&quot;</span>))</span>
+<span id="cb9-21"><a href="first-things-first-load-packages.html#cb9-21" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="first-things-first-load-packages.html#cb9-22" tabindex="-1"></a>male <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(M_L,M_R,</span>
+<span id="cb9-23"><a href="first-things-first-load-packages.html#cb9-23" tabindex="-1"></a>                  <span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">1</span>)</span>
+<span id="cb9-24"><a href="first-things-first-load-packages.html#cb9-24" tabindex="-1"></a>male <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(male, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Male Mice&quot;</span>, <span class="at">color=</span><span class="st">&quot;#256D7B&quot;</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;14&quot;</span>))</span>
+<span id="cb9-25"><a href="first-things-first-load-packages.html#cb9-25" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="first-things-first-load-packages.html#cb9-26" tabindex="-1"></a>female <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(F_L,F_R,</span>
+<span id="cb9-27"><a href="first-things-first-load-packages.html#cb9-27" tabindex="-1"></a>                     <span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">1</span>)</span>
+<span id="cb9-28"><a href="first-things-first-load-packages.html#cb9-28" tabindex="-1"></a>female <span class="ot">&lt;-</span> <span class="fu">annotate_figure</span>(female, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">&quot;Female Mice&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#FC6C85&quot;</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>,<span class="at">size=</span><span class="st">&quot;14&quot;</span>))</span>
+<span id="cb9-29"><a href="first-things-first-load-packages.html#cb9-29" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="first-things-first-load-packages.html#cb9-30" tabindex="-1"></a>panel <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(male,female,</span>
+<span id="cb9-31"><a href="first-things-first-load-packages.html#cb9-31" tabindex="-1"></a>                   <span class="at">ncol=</span><span class="dv">1</span>,<span class="at">nrow=</span><span class="dv">2</span>,</span>
+<span id="cb9-32"><a href="first-things-first-load-packages.html#cb9-32" tabindex="-1"></a>                   <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb9-33"><a href="first-things-first-load-packages.html#cb9-33" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="first-things-first-load-packages.html#cb9-34" tabindex="-1"></a>final_panel <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(cartoons,panel,</span>
+<span id="cb9-35"><a href="first-things-first-load-packages.html#cb9-35" tabindex="-1"></a>                         <span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">1</span>,</span>
+<span id="cb9-36"><a href="first-things-first-load-packages.html#cb9-36" tabindex="-1"></a>                         <span class="at">heights =</span> <span class="fu">c</span>(<span class="fl">2.25</span>,<span class="dv">8</span>))</span></code></pre></div>
+</div>
+<div id="save-the-panel-as-a-high-quality-.png-image" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Save the Panel as a high quality .png image<a href="first-things-first-load-packages.html#save-the-panel-as-a-high-quality-.png-image" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Also save as a .tiff file when ready to publish.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="first-things-first-load-packages.html#cb10-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;Figs/3_VF_CFA_Recovery.png&quot;</span>,final_panel, <span class="at">height=</span><span class="dv">9</span>,<span class="at">width=</span><span class="dv">7</span>,<span class="at">dpi=</span><span class="dv">700</span>,<span class="at">bg=</span><span class="st">&quot;white&quot;</span>) </span>
+<span id="cb10-2"><a href="first-things-first-load-packages.html#cb10-2" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;Figs/tiffs/3_VF_CFA_Recovery.tiff&quot;</span>,final_panel,<span class="at">height=</span><span class="dv">9</span>,<span class="at">width=</span><span class="dv">7</span>,<span class="at">dpi=</span><span class="dv">700</span>,<span class="at">bg=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="first-things-first-load-packages.html#cb11-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;Figs/3_VF_CFA_Recovery.png&quot;</span>)</span></code></pre></div>
+<p><img src="Figs/3_VF_CFA_Recovery.png" width="2450" style="display: block; margin: auto;" /></p>
+</div>
+<div id="statistical-analyses-2" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Statistical Analyses<a href="first-things-first-load-packages.html#statistical-analyses-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="first-things-first-load-packages.html#cb12-1" tabindex="-1"></a><span class="co"># Select the left paws</span></span>
+<span id="cb12-2"><a href="first-things-first-load-packages.html#cb12-2" tabindex="-1"></a>left_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(female_left,male_left)</span>
+<span id="cb12-3"><a href="first-things-first-load-packages.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="first-things-first-load-packages.html#cb12-4" tabindex="-1"></a><span class="co"># Switch to long form</span></span>
+<span id="cb12-5"><a href="first-things-first-load-packages.html#cb12-5" tabindex="-1"></a>a <span class="ot">&lt;-</span> left_paws <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="first-things-first-load-packages.html#cb12-6" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;CFA&quot;</span>))</span>
+<span id="cb12-7"><a href="first-things-first-load-packages.html#cb12-7" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="first-things-first-load-packages.html#cb12-8" tabindex="-1"></a><span class="co"># Run RM anova on the 4 days of VF measuremenets</span></span>
+<span id="cb12-9"><a href="first-things-first-load-packages.html#cb12-9" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a, <span class="at">dv=</span>value,<span class="at">wid=</span>ID,<span class="at">between=</span><span class="fu">c</span>(CFA,Sex),<span class="at">within=</span>variable,<span class="at">effect.size=</span><span class="st">&quot;pes&quot;</span>)</span>
+<span id="cb12-10"><a href="first-things-first-load-packages.html#cb12-10" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Effect</th>
+<th align="right">DFn</th>
+<th align="right">DFd</th>
+<th align="right">F</th>
+<th align="right">p</th>
+<th align="left">p&lt;.05</th>
+<th align="right">pes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CFA</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">128.271</td>
+<td align="right">0.000</td>
+<td align="left">*</td>
+<td align="right">0.681</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">1.211</td>
+<td align="right">0.275</td>
+<td align="left"></td>
+<td align="right">0.020</td>
+</tr>
+<tr class="odd">
+<td align="left">variable</td>
+<td align="right">3</td>
+<td align="right">180</td>
+<td align="right">99.726</td>
+<td align="right">0.000</td>
+<td align="left">*</td>
+<td align="right">0.624</td>
+</tr>
+<tr class="even">
+<td align="left">CFA:Sex</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">1.314</td>
+<td align="right">0.256</td>
+<td align="left"></td>
+<td align="right">0.021</td>
+</tr>
+<tr class="odd">
+<td align="left">CFA:variable</td>
+<td align="right">3</td>
+<td align="right">180</td>
+<td align="right">91.678</td>
+<td align="right">0.000</td>
+<td align="left">*</td>
+<td align="right">0.604</td>
+</tr>
+<tr class="even">
+<td align="left">Sex:variable</td>
+<td align="right">3</td>
+<td align="right">180</td>
+<td align="right">2.651</td>
+<td align="right">0.050</td>
+<td align="left"></td>
+<td align="right">0.042</td>
+</tr>
+<tr class="odd">
+<td align="left">CFA:Sex:variable</td>
+<td align="right">3</td>
+<td align="right">180</td>
+<td align="right">3.570</td>
+<td align="right">0.015</td>
+<td align="left">*</td>
+<td align="right">0.056</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-things-first-load-packages.html#cb13-1" tabindex="-1"></a><span class="co"># Run two way ANOVAs for males and females separately: </span></span>
+<span id="cb13-2"><a href="first-things-first-load-packages.html#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="first-things-first-load-packages.html#cb13-3" tabindex="-1"></a><span class="do">## Males</span></span>
+<span id="cb13-4"><a href="first-things-first-load-packages.html#cb13-4" tabindex="-1"></a>a <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="first-things-first-load-packages.html#cb13-5" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&quot;Male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="first-things-first-load-packages.html#cb13-6" tabindex="-1"></a>  <span class="fu">anova_test</span>(<span class="at">dv=</span>value,<span class="at">wid=</span>ID,<span class="at">between=</span>CFA,<span class="at">within=</span>variable,<span class="at">effect.size =</span> <span class="st">&quot;pes&quot;</span>)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+## $ANOVA
+##         Effect DFn DFd      F                      p p&lt;.05   pes
+## 1          CFA   1  30 74.990 0.00000000117000000000     * 0.714
+## 2     variable   3  90 31.478 0.00000000000005240000     * 0.512
+## 3 CFA:variable   3  90 47.439 0.00000000000000000176     * 0.613
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##         Effect     W     p p&lt;.05
+## 1     variable 0.897 0.681      
+## 2 CFA:variable 0.897 0.681      
+## 
+## $`Sphericity Corrections`
+##         Effect  GGe      DF[GG]                 p[GG] p[GG]&lt;.05   HFe
+## 1     variable 0.93 2.79, 83.67 0.0000000000003530000         * 1.035
+## 2 CFA:variable 0.93 2.79, 83.67 0.0000000000000000242         * 1.035
+##       DF[HF]                  p[HF] p[HF]&lt;.05
+## 1 3.1, 93.11 0.00000000000005240000         *
+## 2 3.1, 93.11 0.00000000000000000176         *</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="first-things-first-load-packages.html#cb15-1" tabindex="-1"></a><span class="do">### Follow up for males: </span></span>
+<span id="cb15-2"><a href="first-things-first-load-packages.html#cb15-2" tabindex="-1"></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="first-things-first-load-packages.html#cb15-3" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&quot;Male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="first-things-first-load-packages.html#cb15-4" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="first-things-first-load-packages.html#cb15-5" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 10
+##   variable .y.   group1 group2    n1    n2        p p.signif    p.adj
+## * &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 BL_L     value Naive  CFA       16    16 5.68e- 1 ns       5.68e- 1
+## 2 hr_24    value Naive  CFA       16    16 1.22e-14 ****     1.22e-14
+## 3 days_3   value Naive  CFA       16    16 1.46e- 8 ****     1.46e- 8
+## 4 days_7   value Naive  CFA       16    16 7.67e- 1 ns       7.67e- 1
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="first-things-first-load-packages.html#cb17-1" tabindex="-1"></a><span class="do">## Females </span></span>
+<span id="cb17-2"><a href="first-things-first-load-packages.html#cb17-2" tabindex="-1"></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="first-things-first-load-packages.html#cb17-3" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="first-things-first-load-packages.html#cb17-4" tabindex="-1"></a>  <span class="fu">anova_test</span>(<span class="at">dv=</span>value,<span class="at">wid=</span>ID,<span class="at">between=</span>CFA,<span class="at">within=</span>variable,<span class="at">effect.size=</span><span class="st">&quot;pes&quot;</span>)</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+## $ANOVA
+##         Effect DFn DFd      F                              p p&lt;.05   pes
+## 1          CFA   1  30 53.808 0.0000000359999999999999981061     * 0.642
+## 2     variable   3  90 84.569 0.0000000000000000000000000427     * 0.738
+## 3 CFA:variable   3  90 47.938 0.0000000000000000013200000000     * 0.615
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##         Effect     W     p p&lt;.05
+## 1     variable 0.507 0.002     *
+## 2 CFA:variable 0.507 0.002     *
+## 
+## $`Sphericity Corrections`
+##         Effect   GGe      DF[GG]                    p[GG] p[GG]&lt;.05   HFe
+## 1     variable 0.754 2.26, 67.88 0.0000000000000000000289         * 0.819
+## 2 CFA:variable 0.754 2.26, 67.88 0.0000000000000135000000         * 0.819
+##       DF[HF]                      p[HF] p[HF]&lt;.05
+## 1 2.46, 73.7 0.000000000000000000000841         *
+## 2 2.46, 73.7 0.000000000000001180000000         *</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="first-things-first-load-packages.html#cb19-1" tabindex="-1"></a><span class="do">### Follow up for Female: </span></span>
+<span id="cb19-2"><a href="first-things-first-load-packages.html#cb19-2" tabindex="-1"></a>a <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="first-things-first-load-packages.html#cb19-3" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="first-things-first-load-packages.html#cb19-4" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="first-things-first-load-packages.html#cb19-5" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 10
+##   variable .y.   group1 group2    n1    n2        p p.signif    p.adj
+## * &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 BL_L     value Naive  CFA       16    16 7.49e- 1 ns       7.49e- 1
+## 2 hr_24    value Naive  CFA       16    16 1.95e-16 ****     1.95e-16
+## 3 days_3   value Naive  CFA       16    16 5.94e- 7 ****     5.94e- 7
+## 4 days_7   value Naive  CFA       16    16 4.46e- 1 ns       4.46e- 1
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="first-things-first-load-packages.html#cb21-1" tabindex="-1"></a><span class="co"># Follow up the significant interaction using piarwise comparisons in Two ways: </span></span>
+<span id="cb21-2"><a href="first-things-first-load-packages.html#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="first-things-first-load-packages.html#cb21-3" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by by Sex: </span></span>
+<span id="cb21-4"><a href="first-things-first-load-packages.html#cb21-4" tabindex="-1"></a>a <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="first-things-first-load-packages.html#cb21-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="first-things-first-load-packages.html#cb21-6" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 11
+##   Sex    variable .y.   group1 group2    n1    n2        p p.signif    p.adj
+## * &lt;chr&gt;  &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 Female BL_L     value Naive  CFA       16    16 7.49e- 1 ns       7.49e- 1
+## 2 Female hr_24    value Naive  CFA       16    16 1.95e-16 ****     1.95e-16
+## 3 Female days_3   value Naive  CFA       16    16 5.94e- 7 ****     5.94e- 7
+## 4 Female days_7   value Naive  CFA       16    16 4.46e- 1 ns       4.46e- 1
+## 5 Male   BL_L     value Naive  CFA       16    16 5.68e- 1 ns       5.68e- 1
+## 6 Male   hr_24    value Naive  CFA       16    16 1.22e-14 ****     1.22e-14
+## 7 Male   days_3   value Naive  CFA       16    16 1.46e- 8 ****     1.46e- 8
+## 8 Male   days_7   value Naive  CFA       16    16 7.67e- 1 ns       7.67e- 1
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="first-things-first-load-packages.html#cb23-1" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA</span></span>
+<span id="cb23-2"><a href="first-things-first-load-packages.html#cb23-2" tabindex="-1"></a>a <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="first-things-first-load-packages.html#cb23-3" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="first-things-first-load-packages.html#cb23-4" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 11
+##   CFA   variable .y.   group1 group2    n1    n2      p p.signif  p.adj
+## * &lt;fct&gt; &lt;fct&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1 Naive BL_L     value Female Male      16    16 0.408  ns       0.408 
+## 2 Naive hr_24    value Female Male      16    16 0.0254 *        0.0254
+## 3 Naive days_3   value Female Male      16    16 0.139  ns       0.139 
+## 4 Naive days_7   value Female Male      16    16 0.871  ns       0.871 
+## 5 CFA   BL_L     value Female Male      16    16 0.571  ns       0.571 
+## 6 CFA   hr_24    value Female Male      16    16 0.017  *        0.017 
+## 7 CFA   days_3   value Female Male      16    16 0.0288 *        0.0288
+## 8 CFA   days_7   value Female Male      16    16 0.194  ns       0.194 
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="first-things-first-load-packages.html#cb25-1" tabindex="-1"></a><span class="do">## Effect of day within each of the 4 groups (i.e., the same thing as the % BL stat..)</span></span>
+<span id="cb25-2"><a href="first-things-first-load-packages.html#cb25-2" tabindex="-1"></a><span class="do">### Only read &amp; interpret measurements relative to BASELINE</span></span>
+<span id="cb25-3"><a href="first-things-first-load-packages.html#cb25-3" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="first-things-first-load-packages.html#cb25-4" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="first-things-first-load-packages.html#cb25-5" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb25-6"><a href="first-things-first-load-packages.html#cb25-6" tabindex="-1"></a><span class="fu">print</span>(b,<span class="at">n=</span><span class="dv">24</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 24 × 11
+##    Sex    CFA   .y.   group1 group2    n1    n2        p p.signif    p.adj
+##  * &lt;chr&gt;  &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+##  1 Female Naive value BL_L   hr_24     16    16 6.03e- 2 ns       3.62e- 1
+##  2 Female Naive value BL_L   days_3    16    16 4.52e- 1 ns       1   e+ 0
+##  3 Female Naive value hr_24  days_3    16    16 2.52e- 1 ns       1   e+ 0
+##  4 Female Naive value BL_L   days_7    16    16 9.36e- 1 ns       1   e+ 0
+##  5 Female Naive value hr_24  days_7    16    16 5.06e- 2 ns       3.04e- 1
+##  6 Female Naive value days_3 days_7    16    16 4.05e- 1 ns       1   e+ 0
+##  7 Male   Naive value BL_L   hr_24     16    16 3.66e- 1 ns       1   e+ 0
+##  8 Male   Naive value BL_L   days_3    16    16 6.7 e- 2 ns       4.02e- 1
+##  9 Male   Naive value hr_24  days_3    16    16 3.43e- 1 ns       1   e+ 0
+## 10 Male   Naive value BL_L   days_7    16    16 4.33e- 1 ns       1   e+ 0
+## 11 Male   Naive value hr_24  days_7    16    16 9.04e- 1 ns       1   e+ 0
+## 12 Male   Naive value days_3 days_7    16    16 2.86e- 1 ns       1   e+ 0
+## 13 Female CFA   value BL_L   hr_24     16    16 1.10e-22 ****     6.59e-22
+## 14 Female CFA   value BL_L   days_3    16    16 7.23e-13 ****     4.34e-12
+## 15 Female CFA   value hr_24  days_3    16    16 2.18e- 8 ****     1.31e- 7
+## 16 Female CFA   value BL_L   days_7    16    16 2.8 e- 1 ns       1   e+ 0
+## 17 Female CFA   value hr_24  days_7    16    16 3.48e-21 ****     2.09e-20
+## 18 Female CFA   value days_3 days_7    16    16 5.07e-11 ****     3.04e-10
+## 19 Male   CFA   value BL_L   hr_24     16    16 1.25e-20 ****     7.5 e-20
+## 20 Male   CFA   value BL_L   days_3    16    16 1.01e-16 ****     6.06e-16
+## 21 Male   CFA   value hr_24  days_3    16    16 1.17e- 2 *        6.99e- 2
+## 22 Male   CFA   value BL_L   days_7    16    16 3.38e- 1 ns       1   e+ 0
+## 23 Male   CFA   value hr_24  days_7    16    16 5.52e-22 ****     3.31e-21
+## 24 Male   CFA   value days_3 days_7    16    16 3.24e-18 ****     1.94e-17
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="figure-2---female-mice-homecage-behaviors-after-cfa.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-CFA_Recovery.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+Code,Behavior,Description
+1,Eating / Drinking,Seeking or consuming food or water.
+2,Grooming ,Self-grooming (not including hindpaw licks)
+3,Social Active,"Playing, allogrooming, rassling"
+4,Social Non-Active,Mice are in physical contact but are not actively engaging with one another
+5,Alone Active,"Walking around the cage, rearing"
+6,Alone Non-Active,Alone and imobile
+7,Hindpaw Lick,Licking the hindpaw (either)
+8,Digging,Digging or burying in the cage bedding
+9,Dangling,Upside down hanging from the bars of the feeder insert
+10,In Nest,In the nest

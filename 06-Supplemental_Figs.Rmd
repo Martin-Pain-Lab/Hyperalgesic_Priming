@@ -1,0 +1,343 @@
+---
+output: html_document
+---
+
+# Supplemental Figure 1 - Male vs Female Homecage Behavs Among Naive Mice {-}
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning=FALSE,message=FALSE)
+
+library(tidyverse)
+library(reshape2)
+library(ggpubr)
+
+options(scipen=999)
+```
+
+```{r}
+# Get data 
+male_data <- read_csv("Data/HC_CFA_Males_R.csv")
+male_data$Sex <- "Male"
+female_data <- read_csv("Data/F_HC_CFA_R.csv")
+female_data$Sex <- "Female"
+
+# Naive males and females only
+male_data <- rbind(male_data,female_data) %>%
+  filter(Condition == "Naive")
+```
+
+```{r}
+# Bar chart 
+male_data$Sex <- as.character(male_data$Sex)
+male_data$Sex <- factor(male_data$Sex,levels = unique(male_data$Sex))
+
+m_male_data <- melt(male_data, id.vars=c("ID","Sex","Condition"))
+m_male_data$value <- factor(m_male_data$value,
+                            levels=c(1:10),
+                            labels=c("Eating","Grooming","Social-Active","Social Non-Active","Alone-Active","Alone Non-Active","Hindpaw Lick","Digging","Dangling","In Nest"))
+
+m_male_data$x <- as.character(m_male_data$variable)
+
+m_male_data$Obs_value <- word(m_male_data$x, 2, sep="_") %>%
+  factor(levels=c(1:40))
+
+colnames(m_male_data) <- c("ID","Sex","Condition","variable","value","Junk","Obs_value")
+
+a <- m_male_data %>%
+  group_by(ID,Sex,value) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Sex~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(3:12), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Sex"))%>%
+  filter(variable != "Digging")
+  
+d <- c %>%
+  group_by(Sex,variable) %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n-1)) %>%
+  ggplot(aes(x=Sex,y=mean,colour=Sex,fill=Sex))+
+  geom_bar(stat="identity",alpha=0.5,colour=NA)+
+  geom_errorbar(aes(x=Sex,ymin=mean-se,ymax=mean+se),width=0.5,alpha=0.8)+
+  scale_colour_manual(values=c("#256D7B", "#FC6C85"))+
+  scale_fill_manual(values=c("#256D7B", "#FC6C85"))+
+  facet_wrap(~variable,ncol=9)+
+  theme_classic()+
+  theme(legend.position = c(0,1), legend.justification = c(0,1))+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))+
+  theme(strip.text=element_text(size=6))+
+  ylim(0,50)
+
+A <- d + 
+  geom_jitter(data=c,aes(x=Sex,y=value),size=2,alpha=0.3,height=0,width=0.15)+
+  labs(x="",y="Number of Observations",colour=NULL,fill=NULL,shape=NULL)
+
+x <- data.frame(variable = c("Grooming","Social-Active", "Social Non-Active","Alone-Active","Dangling","In Nest"),
+                Sex = c("Male","Male","Male","Male","Male","Male"),
+                end = c("Female","Female","Female","Female","Female","Female"),
+                y = c(12,15,12,22,15,45),
+                label=c("***","***","***","***","***","***"))
+
+A <- A +
+  geom_signif(data=x,aes(xmin=Sex,xmax=end,annotations=label,y_position = y),colour="black",manual=TRUE)
+```
+
+```{r}
+a <- m_male_data %>%
+  group_by(ID,Sex,value) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Sex~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(3:12), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Sex"))
+  
+d <- c %>%
+  group_by(Sex,variable) %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n-1))
+
+d$perc = (d$mean / 40) * 100
+
+male <- d[d$Sex == "Male", ]
+male$perc <- (male$mean / 40) * 100
+male <- male %>%
+  filter(variable != "Digging")
+
+female <- d[d$Sex == "Female", ]
+female$perc  <- (female$mean / 40) * 100
+female <- female %>%
+  filter(variable != "Digging")
+
+male$ymax = cumsum(male$perc)
+male$ymin = c(0,head(male$ymax,n=-1))
+
+female$ymax = cumsum(female$perc)
+female$ymin = c(0,head(female$ymax,n=-1))
+
+my_colours <- c("#ddc173","#b07154","#3a2317", "#91a16a","#8e8680","#738986","#d76144","#3b6061","#f4decb")
+
+a <- ggplot(male, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=variable))+
+  geom_rect(alpha=0.8) +
+  scale_fill_manual(values=my_colours)+
+  coord_polar(theta="y")+
+  theme_void()+
+  theme(plot.title=element_text(hjust = 0.5,colour="#256D7B"))+
+  labs(fill=NULL,title="Naive Male")+
+  xlim(c(2,4))
+
+b <- ggplot(female, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=variable))+
+  geom_rect(alpha=0.8) +
+  scale_fill_manual(values=my_colours)+
+  coord_polar(theta="y")+
+  theme_void()+
+  theme(plot.title=element_text(hjust = 0.5,colour="#FC6C85"))+
+  labs(fill=NULL,title="Naive Female")+
+  xlim(c(2,4))
+
+Donuts <- ggarrange(a,b,nrow=2,ncol=1,common.legend = TRUE,legend = "right")
+
+```
+
+```{r}
+my_colours <- c("#ddc173","#b07154","#3a2317", "#91a16a","#8e8680","#738986","#d76144","#3b6061","#f4decb","white")
+
+male_mice <- m_male_data[m_male_data$Sex == "Male", ]
+female_mice <- m_male_data[m_male_data$Sex == "Female", ]
+
+a <- male_mice %>%
+  mutate(dumm_ID=rep(1:16,40)) %>%
+  ggplot(aes(x=dumm_ID,y=Obs_value,colour=value,fill=value))+
+  geom_tile(alpha=0.8)+
+  scale_colour_manual(values = my_colours)+
+  scale_fill_manual(values = my_colours)+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#256D7B"),
+    axis.ticks = element_line(colour="#256D7B"),
+    axis.line = element_line(colour="#256D7B"),
+    axis.title = element_text(colour = "#256D7B"),
+    plot.title=element_text(colour="#256D7B"))+
+  coord_flip()+
+  labs(y="Number of Observations Across 2 hours", x="Mice Observed",title="Naive Male Mice",colour=NULL,fill=NULL)
+
+my_colours <- c("#ddc173","#b07154","#91a16a","#8e8680","#d76144","white","#3b6061","#f4decb","white","white")
+
+b <- female_mice %>%
+  mutate(dumm_ID=rep(1:16,40)) %>%
+  ggplot(aes(x=dumm_ID,y=Obs_value,colour=value,fill=value))+
+  geom_tile(alpha=0.8)+
+  scale_colour_manual(values = my_colours)+
+  scale_fill_manual(values = my_colours)+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#FC6C85"),
+    axis.ticks = element_line(colour="#FC6C85"),
+    axis.line = element_line(colour="#FC6C85"),
+    axis.title = element_text(colour = "#FC6C85"),
+    plot.title=element_text(colour="#FC6C85"))+
+  coord_flip()+
+  labs(y="Number of Observations Across 2 hours", x="Mice Observed",title="Naive Female Mice",colour=NULL,fill=NULL)
+
+c <- male_mice %>%
+  ggplot(aes(x=Obs_value,y=value))+
+  geom_tile(alpha=0.1,fill="#256D7B")+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#256D7B"),
+    axis.ticks = element_line(colour="#256D7B"),
+    axis.line = element_line(colour="#256D7B"),
+    axis.title = element_text(colour = "#256D7B"),
+    plot.title=element_text(colour="#256D7B"))+
+  labs(x="Number of Observations Across 2 Hours",y="",title="Naive Male Mice")
+
+xtra <- data.frame(
+  ID = c(0,0),
+  Sex = c("Female","Female"),
+  Condition = c("Naive","Naive"),
+  variable = c("Obs_0","Obs_0"),
+  value = c("Alone Non-Active","Social-Active"),
+  Junk = c("Obs_0","Obs_0"),
+  Obs_value = c(40,40)
+)
+
+N_2 <- rbind(female_mice,xtra)
+N_2$dumm_ID <- c(rep(1:16,40),rep(0,2))
+
+d <- N_2 %>%
+  filter(value != "Digging")%>%
+  ggplot(aes(x=Obs_value,y=value))+
+  geom_tile(alpha=0.1,fill="#FC6C85")+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#FC6C85"),
+    axis.ticks = element_line(colour="#FC6C85"),
+    axis.line = element_line(colour="#FC6C85"),
+    axis.title = element_text(colour = "#FC6C85"),
+    plot.title=element_text(colour="#FC6C85"))+
+  labs(x="Number of Observations Across 2 Hours",y="",title="Naive Female Mice")
+
+C <- ggarrange(a,b,nrow=1,ncol=2,common.legend = TRUE,legend = "right")
+D <- ggarrange(c,d,nrow=2,ncol=1)
+```
+
+```{r}
+thirty_min_bins <- as.data.frame(rep(1:4,each=(320)))
+colnames(thirty_min_bins) <- "x"
+m_male_data$thirty_bins <- thirty_min_bins$x
+
+a <- m_male_data %>%
+  group_by(ID,Sex,value,thirty_bins) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Sex+thirty_bins~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(4:13), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Sex","thirty_bins"))
+
+B <- c %>% 
+  group_by(Sex,variable,thirty_bins) %>%
+  filter(variable != "Digging") %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n-1)) %>% 
+  ggplot(aes(x=thirty_bins,y=mean,colour=Sex))+
+  geom_point(size=3.5,alpha=0.8)+
+  geom_errorbar(aes(x=thirty_bins,ymin=mean-se,ymax=mean+se),width=0.5,alpha=0.8)+
+  geom_line(size=1,alpha=0.8)+
+  scale_colour_manual(values=c("#256D7B","#FC6C85"))+
+  theme_classic()+
+  theme(legend.position = "none")+
+  labs(x="Thirty Minute bins",y="Number of Observations")+
+  facet_wrap(~variable,ncol=3)+
+  theme(strip.text=element_text(size=6.5))+
+  ylim(0,10)
+
+top <- ggarrange(A,Donuts,
+                 nrow=1,ncol=2,
+                 widths=c(2,1),
+                 labels=c("A","B"))
+middle <- ggarrange(B,D,nrow=1,ncol=2,widths=c(1,2),labels=c("C","D"))
+
+HC_panel <- ggarrange(top,middle,C,nrow=3,ncol=1,heights=c(1.5,1.75,1),labels = c("A","C","E"))+
+  theme(panel.background = element_rect(fill="#FFFFFF",colour="#FFFFFF"))+
+  theme(plot.background = element_rect(fill = "#FFFFFF", colour="#FFFFFF"))
+
+ggsave("Figs/S1_MvF_Homecage.png",HC_panel,height=9,width=11,dpi=300)
+
+# ggsave("Figs/tiffs/S1_MvF_Homecage.tiff",HC_panel,height=9,width=11,dpi=700,bg="white",device="tiff")
+```
+
+## Published Image {-}
+
+```{r}
+knitr::include_graphics("Figs/S1_MvF_Homecage.png")
+```
+
+**Figure S1.** *Sex differences in basal homecage behavior.* (A) total quantification of observations across the two hour session expressed as mean value +/- SEM. (B) Donut charts showcasing the frequency of behaviors observed for males and females. (C) Line charts showing changes across the session divided into 4x30 minute bins. (D and E) are qualitative representations of the distribution of behaviors observed across the 40 timepoints.
+
+## Statistics {-}
+
+```{r,echo=TRUE}
+## MANOVA on SEX in the Naives: 
+a <- m_male_data %>%
+  group_by(ID,Sex,value) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Sex~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(3:12), ~replace(., is.na(.), 0))
+
+fit <- manova(cbind(Grooming,`Social-Active`,`Social Non-Active`,`Alone-Active`,`Alone Non-Active`,`Hindpaw Lick`,`Dangling`,`In Nest`) ~ Sex, data=b)
+summary(fit)
+
+# Because the omnibus test (above) is significant, follow up by running one-way ANOVAs for each behavior. 
+## Bonferroni correct these only if forced
+summary.aov(fit)
+```
+
+- Females spent less time grooming (F(1,30) = 7.25, p = 0.01)
+- Less socially active (F(1,30) = 74.405, p < 0.001)
+- Less socially non-active (F(1,30) = 22.94, p < 0.001) 
+- Less alone active (F(1,30) = 21.988, p < 0.001)
+- Less alone non-active (F(1,30) = 5, p = 0.032)
+- Less dangling (F(1,30) = 228.86, p < 0.001)
+
+... Because they spend so much more time than males in the nest (F(1,30) = 384.75, p < 0.001)
+
+
+
+

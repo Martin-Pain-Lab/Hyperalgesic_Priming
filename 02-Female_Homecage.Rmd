@@ -1,0 +1,319 @@
+---
+output: html_document
+---
+
+# Figure 2 - Female Mice: Homecage Behaviors after CFA {-}
+
+```{r setup_f_HC, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(reshape2)
+library(ggpubr)
+
+options(scipen = 999)
+```
+
+## Published Image{-}
+
+```{r,F_analyze_CFA_HC_Behaviours,include=FALSE}
+male_data <- read_csv("Data/F_HC_CFA_R.csv")
+male_data$Condition <- as.character(male_data$Condition)
+male_data$Condition <- factor(male_data$Condition,levels = unique(male_data$Condition))
+
+m_male_data <- melt(male_data, id.vars=c("ID","Condition"))
+m_male_data$value <- factor(m_male_data$value,
+                            levels=c(1:10),
+                            labels=c("Eating","Grooming","Social-Active","Social Non-Active","Alone-Active","Alone Non-Active","Hindpaw Lick","Digging","Dangling","In Nest"))
+
+m_male_data$x <- as.character(m_male_data$variable)
+
+m_male_data$Obs_value <- word(m_male_data$x, 2, sep="_") %>%
+  factor(levels=c(1:40))
+
+colnames(m_male_data) <- c("ID","Condition","variable","value","Junk","Obs_value")
+
+a <- m_male_data %>%
+  group_by(ID,Condition,value) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Condition~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(3:11), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Condition"))%>%
+  filter (variable != "Digging")
+  
+d <- c %>%
+  group_by(Condition,variable) %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n-1)) %>%
+  ggplot(aes(x=Condition,y=mean,colour=Condition,fill=Condition))+
+  geom_bar(stat="identity",alpha=0.5,colour=NA)+
+  geom_errorbar(aes(x=Condition,ymin=mean-se,ymax=mean+se),width=0.5,alpha=0.8)+
+  scale_colour_manual(values=c("#FC6C85", "#800020"))+
+  scale_fill_manual(values=c("#FC6C85", "#800020"))+
+  facet_wrap(~variable,ncol=9)+
+  theme_classic()+
+  theme(legend.position = c(0,1), legend.justification = c(0,1))+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))+
+  theme(strip.text=element_text(size=6.))+
+  ylim(0,50)
+
+A <- d + 
+  geom_jitter(data=c,aes(x=Condition,y=value,shape=Condition),size=2,alpha=0.3,height=0,width=0.15)+
+  labs(x="",y="Number of Observations",colour=NULL,fill=NULL,shape=NULL)
+
+x <- data.frame(variable = c("Grooming", "Social Non-Active", "Hindpaw Lick","In Nest"),
+                Condition = c("Naive","Naive","Naive","Naive"),
+                end = c("CFA","CFA","CFA","CFA"),
+                y = c(20,25,15,45),
+                label=c("***","*","***","***"))
+
+A <- A +
+  geom_signif(data=x,aes(xmin=Condition,xmax=end,annotations=label,y_position = y),colour="black",manual=TRUE)
+```
+
+```{r,F_CFA_HC_Behavs Donut Chart,include=FALSE}
+a <- m_male_data %>%
+  group_by(ID,Condition,value) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Condition~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(3:11), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Condition"))%>%
+  filter (variable != "Digging")
+  
+d <- c %>%
+  group_by(Condition,variable) %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n-1))
+
+d$perc = (d$mean / 40) * 100
+
+Naives <- d[d$Condition == "Naive", ]
+Naives$perc <- (Naives$mean / 40) * 100
+CFAs <- d[d$Condition == "CFA", ]
+CFAs$perc  <- (CFAs$mean / 40) * 100
+
+Naives$ymax = cumsum(Naives$perc)
+Naives$ymin = c(0,head(Naives$ymax,n=-1))
+
+CFAs$ymax = cumsum(CFAs$perc)
+CFAs$ymin = c(0,head(CFAs$ymax,n=-1))
+
+my_colours <- c("#ddc173","#b07154","#3a2317", "#91a16a","#8e8680","#738986","#d76144","#3b6061","#f4decb")
+
+a <- ggplot(Naives, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=variable))+
+  geom_rect(alpha=0.8) +
+  scale_fill_manual(values=my_colours)+
+  coord_polar(theta="y")+
+  theme_void()+
+  theme(plot.title=element_text(hjust = 0.5))+
+  labs(fill=NULL,title="Naive")+
+  xlim(c(2,4))
+
+b <- ggplot(CFAs, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=variable))+
+  geom_rect(alpha=0.8) +
+  scale_fill_manual(values=my_colours)+
+  coord_polar(theta="y")+
+  theme_void()+
+  theme(plot.title=element_text(hjust = 0.5,colour="#800020"))+
+  labs(fill=NULL,title="CFA Injected")+
+  xlim(c(2,4))
+
+Donuts <- ggarrange(a,b,nrow=2,ncol=1,common.legend = TRUE,legend = "right")
+```
+
+```{r,F_CFA_HC_Behavs Tiles,include=FALSE}
+my_colours <- c("#ddc173","#b07154","#3a2317", "#91a16a","#8e8680","#738986","#d76144","#3b6061","#f4decb")
+
+N_mice <- m_male_data[m_male_data$Condition == "Naive", ]
+CFA_mice <- m_male_data[m_male_data$Condition == "CFA", ]
+
+xtra <- data.frame(
+  ID = c(0,0),
+  Condition = c("Naive","Naive"),
+  variable = c("Obs_0","Obs_0"),
+  value = c("Alone Non-Active","Social-Active"),
+  Junk = c("Obs_0","Obs_0"),
+  Obs_value = c(40,40)
+)
+
+N_2 <- rbind(N_mice,xtra)
+
+N_2$dumm_ID <- c(rep(1:16,40),rep(0,2))
+
+a <- N_2 %>%
+  filter(value != "Digging") %>%
+  ggplot(aes(x=dumm_ID,y=Obs_value,colour=value,fill=value))+
+  geom_tile(alpha=0.8)+
+  scale_colour_manual(values = my_colours)+
+  scale_fill_manual(values = my_colours)+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#FC6C85"),
+    axis.ticks = element_line(colour="#FC6C85"),
+    axis.line = element_line(colour="#FC6C85"),
+    axis.title = element_text(colour = "#FC6C85"),
+    plot.title=element_text(colour="#FC6C85"))+
+  coord_flip()+
+  labs(y="Number of Observations Across 2 hours", 
+       x="Mice Observed",title="Naive",
+       colour=NULL,fill=NULL)+
+  xlim(0,16)
+a
+
+b <- CFA_mice %>%
+  mutate(dumm_ID=rep(1:16,40)) %>%
+  filter(value != "Digging") %>% 
+  ggplot(aes(x=dumm_ID,y=Obs_value,colour=value,fill=value))+
+  geom_tile(alpha=0.8)+
+  scale_colour_manual(values = my_colours)+
+  scale_fill_manual(values = my_colours)+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#800020"),
+    axis.ticks = element_line(colour="#800020"),
+    axis.line = element_line(colour="#800020"),
+    axis.title = element_text(colour = "#800020"),
+    plot.title=element_text(colour="#800020"))+
+  coord_flip()+
+  labs(y="Number of Observations Across 2 hours", x="Mice Observed",title="CFA-Injected",colour=NULL,fill=NULL)
+
+c <- N_2 %>%
+  filter(value != "Digging") %>%
+  ggplot(aes(x=Obs_value,y=value))+
+  geom_tile(alpha=0.1,fill="#FC6C85")+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+    theme(
+    axis.text = element_text(colour="#FC6C85"),
+    axis.ticks = element_line(colour="#FC6C85"),
+    axis.line = element_line(colour="#FC6C85"),
+    axis.title = element_text(colour = "#FC6C85"),
+    plot.title=element_text(colour="#FC6C85"))+
+  labs(x="Number of Observations Across 2 Hours",y="",title="Naive")
+
+d <- CFA_mice  %>%
+  filter(value != "Digging") %>%
+  ggplot(aes(x=Obs_value,y=value))+
+  geom_tile(alpha=0.1,fill="#800020")+
+  theme_classic()+
+  theme(plot.title=element_text(hjust=0.5))+
+  theme(axis.text.x = element_text(size=5))+
+  theme(
+    axis.text = element_text(colour="#800020"),
+    axis.ticks = element_line(colour="#800020"),
+    axis.line = element_line(colour="#800020"),
+    axis.title = element_text(colour = "#800020"),
+    plot.title=element_text(colour="#800020"))+
+  labs(x="Number of Observations Across 2 Hours",y="",title="CFA-Injected")
+
+C <- ggarrange(a,b,nrow=1,ncol=2,common.legend = TRUE,legend = "right")
+
+D <- ggarrange(c,d,nrow=2,ncol=1)
+
+```
+
+```{r,F_CFA_HC_Behavs_30min_Bins,include=FALSE}
+thirty_min_bins <- as.data.frame(rep(1:4,each=(320)))
+colnames(thirty_min_bins) <- "x"
+m_male_data$thirty_bins <- thirty_min_bins$x
+
+a <- m_male_data %>%
+  group_by(ID,Condition,value,thirty_bins) %>%
+  summarise(
+    my_count=n()
+  ) 
+  
+b <- dcast(a,ID+Condition+thirty_bins~value,value.var = "my_count")
+
+b <- b %>% 
+  mutate_at(c(4:13), ~replace(., is.na(.), 0))
+
+c <- melt(b,id.vars = c("ID","Condition","thirty_bins"))%>%
+  filter (variable != "Digging")
+
+B <- c %>% 
+  group_by(Condition,variable,thirty_bins) %>%
+  summarise(
+    n=n(),
+    mean=mean(value),
+    sd=sd(value)
+  ) %>% mutate(se = sd / sqrt(n)) %>%
+  ggplot(aes(x=thirty_bins,y=mean,colour=Condition,shape=Condition))+
+  geom_point(size=3.5,alpha=0.8)+
+  geom_errorbar(aes(x=thirty_bins,ymin=mean-se,ymax=mean+se),width=0.5,alpha=0.8)+
+  geom_line(size=1,alpha=0.8)+
+  scale_colour_manual(values=c("#FC6C85","#800020"))+
+  theme_classic()+
+  theme(legend.position = "none")+
+  labs(x="Thirty Minute bins",y="Number of Observations")+
+  facet_wrap(~variable,ncol=3)+
+  theme(strip.text=element_text(size=6.5))
+
+top <- ggarrange(A,Donuts,
+                 nrow=1,ncol=2,
+                 widths=c(2,1),
+                 labels=c("A","B"))
+middle <- ggarrange(B,D,nrow=1,ncol=2,widths=c(1,2),labels=c("C","D"))
+
+HC_panel <- ggarrange(top,middle,C,nrow=3,ncol=1,heights=c(1.5,1.75,1),labels = c("A","C","E"))+
+  theme(panel.background = element_rect(fill="#FFFFFF",colour="#FFFFFF"))+
+  theme(plot.background = element_rect(fill = "#FFFFFF", colour="#FFFFFF"))
+ggsave("Figs/2_female_HC_panel.png",height=9,width=11,dpi=300)
+# ggsave("Figs/tiffs/2_female_HC_panel.tiff",height=9,width=11,dpi=700,device="tiff",bg="white")
+```
+
+```{r,echo = FALSE}
+knitr::include_graphics("Figs/2_female_HC_panel.png")
+```
+
+**Figure 2.** *Homecage behaviors in female mice after injection of 10*$\mu l$ *of 50% CFA.* (A) Total number of observations of each behavior category across the two-hour observation period. (B) Donut charts showing the breakdown of average time spent engaging in each behavior for each group. (C) Line charts showcase group differences in changes in behavior across the two-hour long session. (D and E) are qualitative representations of the distribution of behaviors observed across the 40 time points. Data represented as mean value +/- SEM. $***$ indicates p < 0.001.
+
+## Statistical Analyses {-}
+
+
+### Overall MANOVA for HC Behavs for females
+```{r}
+# All behaviours in the model throws an error - it knows that you need to leave one out I suppose. 
+## I thought originally that I would leave time in the nest out, but bc there is a clear sex difference in that behaviour I chose eating instead here: 
+
+fit <- manova(cbind(Grooming,`Social-Active`,`Social Non-Active`,`Alone-Active`,`Alone Non-Active`,`Hindpaw Lick`,`Dangling`,`In Nest`) ~ Condition, data=b)
+summary(fit)
+```
+
+- The overall MANOVA for female mice was also significant (F(1,30) = 3.05, p = 0.017)
+
+### Follow up:
+```{r}
+# Prints out the individual ANOVAs for each behaviour
+summary.aov(fit)
+```
+
+CFA-injected Female mice exhibited: 
+
+- Increased grooming during the observation session (F(1,30) = 12.26, p = 0.0015)
+- Increased social inactive behaviour (F(1,30) = 4.626, p = 0.039)
+- More hindpaw licks (F(1,30) = 15.95, p < 0.001)
+- And less observations in the nest (F(1,30) = 10.93, p = 0.002)
