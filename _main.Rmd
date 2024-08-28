@@ -1856,7 +1856,7 @@ tt(d)
 output: html_document
 ---
 
-# Supplemental Figure 1 - Male vs Female Homecage Behavs Among Naive Mice {-}
+# Supplemental Figure 1 - Sex Differences in Patterns of Homecage Behavior in Naive Mice {-}
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,warning=FALSE,message=FALSE)
@@ -2373,6 +2373,8 @@ ggsave("Figs/S2_MvF_CFA.png",panel,height = 3.5,width = 7,dpi=300)
 
 knitr::include_graphics("Figs/S2_MvF_CFA.png")
 ```
+
+**Figure S2.** *Sex differences in hypersensitivity caused by CFA injection.* (A) Female mice exhibit more sensitivity than males 24 hours after CFA, but less sensitivity than males 3 days post administration. (B) CFA induced more robust sensitivity in female mice than males at the 24 hour post injection timepoint, relative to the individual baseline measurements. (C) Female mice exhibited a greater resolution of sensitivity than did males between the first two post CFA VF measurements. Data expressed as mean value +/- SEM, \*\*\* indicates p \< 0.001, \*\* indicates p \< 0.01, \* indicates p \< 0.05.
 
 ## Statistics {-}
 ```{r,echo= TRUE}

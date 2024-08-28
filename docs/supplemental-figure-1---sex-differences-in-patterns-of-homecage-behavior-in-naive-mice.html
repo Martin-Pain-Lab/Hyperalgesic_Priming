@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sex Differences in Pain Sensitization Book of Data</title>
+  <title>Supplemental Figure 1 - Sex Differences in Patterns of Homecage Behavior in Naive Mice | Sex Differences in Pain Sensitization Book of Data</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sex Differences in Pain Sensitization Book of Data" />
+  <meta property="og:title" content="Supplemental Figure 1 - Sex Differences in Patterns of Homecage Behavior in Naive Mice | Sex Differences in Pain Sensitization Book of Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sex Differences in Pain Sensitization Book of Data" />
+  <meta name="twitter:title" content="Supplemental Figure 1 - Sex Differences in Patterns of Homecage Behavior in Naive Mice | Sex Differences in Pain Sensitization Book of Data" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -34,8 +34,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="figure-1---homecage-behaviors-after-cfa-in-male-mice.html"/>
+<link rel="prev" href="figure-5---recovery-from-footshock.html"/>
+<link rel="next" href="supplemental-figure-2---sex-differences-in-cfa-hypersensitivity-recovery.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,26 +222,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Sex Differences in Pain Sensitization Book of Data</h1>
+<div id="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice" class="section level1 unnumbered hasAnchor">
+<h1>Supplemental Figure 1 - Sex Differences in Patterns of Homecage Behavior in Naive Mice<a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="published-image-5" class="section level2 unnumbered hasAnchor">
+<h2>Published Image<a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#published-image-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="Figs/S1_MvF_Homecage.png" width="1650" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S1.</strong> <em>Sex differences in basal homecage behavior.</em> (A) total quantification of observations across the two hour session expressed as mean value +/- SEM. (B) Donut charts showcasing the frequency of behaviors observed for males and females. (C) Line charts showing changes across the session divided into 4x30 minute bins. (D and E) are qualitative representations of the distribution of behaviors observed across the 40 timepoints.</p>
 </div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This bookdown project contains R code and statistical outputs, and code to generate analyses for the paper <strong>Inflammatory injury induces pain sensitization that is expressed beyond the site of injury in male (and not in female) mice</strong>.</p>
+<div id="statistics-2" class="section level2 unnumbered hasAnchor">
+<h2>Statistics<a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#statistics-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## MANOVA on SEX in the Naives: </span></span>
+<span id="cb29-2"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> m_male_data <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID,Sex,value) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb29-5"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">my_count=</span><span class="fu">n</span>()</span>
+<span id="cb29-6"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb29-7"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-8"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">dcast</span>(a,ID<span class="sc">+</span>Sex<span class="sc">~</span>value,<span class="at">value.var =</span> <span class="st">&quot;my_count&quot;</span>)</span>
+<span id="cb29-9"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-10" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> b <span class="sc">%&gt;%</span> </span>
+<span id="cb29-11"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>), <span class="sc">~</span><span class="fu">replace</span>(., <span class="fu">is.na</span>(.), <span class="dv">0</span>))</span>
+<span id="cb29-12"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(Grooming,<span class="st">`</span><span class="at">Social-Active</span><span class="st">`</span>,<span class="st">`</span><span class="at">Social Non-Active</span><span class="st">`</span>,<span class="st">`</span><span class="at">Alone-Active</span><span class="st">`</span>,<span class="st">`</span><span class="at">Alone Non-Active</span><span class="st">`</span>,<span class="st">`</span><span class="at">Hindpaw Lick</span><span class="st">`</span>,<span class="st">`</span><span class="at">Dangling</span><span class="st">`</span>,<span class="st">`</span><span class="at">In Nest</span><span class="st">`</span>) <span class="sc">~</span> Sex, <span class="at">data=</span>b)</span>
+<span id="cb29-14"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<pre><code>##           Df Pillai approx F num Df den Df                Pr(&gt;F)    
+## Sex        1  0.974   107.69      8     23 0.0000000000000002247 ***
+## Residuals 30                                                        
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Because the omnibus test (above) is significant, follow up by running one-way ANOVAs for each behavior. </span></span>
+<span id="cb31-2"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Bonferroni correct these only if forced</span></span>
+<span id="cb31-3"><a href="supplemental-figure-1---sex-differences-in-patterns-of-homecage-behavior-in-naive-mice.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.aov</span>(fit)</span></code></pre></div>
+<pre><code>##  Response Grooming :
+##             Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+## Sex          1  30.031 30.0312  7.2547 0.01146 *
+## Residuals   30 124.187  4.1396                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response Social-Active :
+##             Df Sum Sq Mean Sq F value         Pr(&gt;F)    
+## Sex          1 406.13  406.13  74.405 0.000000001271 ***
+## Residuals   30 163.75    5.46                           
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response Social Non-Active :
+##             Df Sum Sq Mean Sq F value     Pr(&gt;F)    
+## Sex          1 52.531  52.531  22.944 0.00004214 ***
+## Residuals   30 68.687   2.290                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response Alone-Active :
+##             Df Sum Sq Mean Sq F value     Pr(&gt;F)    
+## Sex          1 312.50 312.500  21.988 0.00005597 ***
+## Residuals   30 426.38  14.213                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response Alone Non-Active :
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## Sex          1    0.5     0.5       5 0.03294 *
+## Residuals   30    3.0     0.1                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response Hindpaw Lick :
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Sex          1  0.000  0.0000       0      1
+## Residuals   30  1.875  0.0625               
+## 
+##  Response Dangling :
+##             Df Sum Sq Mean Sq F value               Pr(&gt;F)    
+## Sex          1 544.50  544.50  228.86 0.000000000000001398 ***
+## Residuals   30  71.38    2.38                                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response In Nest :
+##             Df Sum Sq Mean Sq F value                Pr(&gt;F)    
+## Sex          1 6132.8  6132.8  384.75 &lt; 0.00000000000000022 ***
+## Residuals   30  478.2    15.9                                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>
-<li><p>Raw data and code to generate the figure panels are available on our github.</p></li>
-<li><p>Code to generate the figures and statistical analyses was written by Jennet Baumbach.</p></li>
-<li><p>Any questions about these data should be directed to the corresponding author: Loren Martin, Ph.D <a href="mailto:lj.martin@utoronto.ca" class="email">lj.martin@utoronto.ca</a></p></li>
+<li>Females spent less time grooming (F(1,30) = 7.25, p = 0.01)</li>
+<li>Less socially active (F(1,30) = 74.405, p &lt; 0.001)</li>
+<li>Less socially non-active (F(1,30) = 22.94, p &lt; 0.001)</li>
+<li>Less alone active (F(1,30) = 21.988, p &lt; 0.001)</li>
+<li>Less alone non-active (F(1,30) = 5, p = 0.032)</li>
+<li>Less dangling (F(1,30) = 228.86, p &lt; 0.001)</li>
 </ul>
+<p>… Because they spend so much more time than males in the nest (F(1,30) = 384.75, p &lt; 0.001)</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="figure-1---homecage-behaviors-after-cfa-in-male-mice.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="figure-5---recovery-from-footshock.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="supplemental-figure-2---sex-differences-in-cfa-hypersensitivity-recovery.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -272,7 +355,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-Supplemental_Figs.Rmd",
 "text": "Edit"
 },
 "history": {
