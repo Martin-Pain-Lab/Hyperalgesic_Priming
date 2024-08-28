@@ -233,19 +233,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Statistics<a href="figure-5---recovery-from-footshock.html#statistics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="left-paws" class="section level3 unnumbered hasAnchor">
 <h3>Left Paws<a href="figure-5---recovery-from-footshock.html#left-paws" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="figure-5---recovery-from-footshock.html#cb21-1" aria-hidden="true" tabindex="-1"></a>L_Male<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
-<span id="cb21-2"><a href="figure-5---recovery-from-footshock.html#cb21-2" aria-hidden="true" tabindex="-1"></a>L_Female<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
-<span id="cb21-3"><a href="figure-5---recovery-from-footshock.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="figure-5---recovery-from-footshock.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the left paws</span></span>
-<span id="cb21-5"><a href="figure-5---recovery-from-footshock.html#cb21-5" aria-hidden="true" tabindex="-1"></a>left_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(L_Male,L_Female)</span>
-<span id="cb21-6"><a href="figure-5---recovery-from-footshock.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="figure-5---recovery-from-footshock.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to long form</span></span>
-<span id="cb21-8"><a href="figure-5---recovery-from-footshock.html#cb21-8" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> left_paws <span class="sc">%&gt;%</span></span>
-<span id="cb21-9"><a href="figure-5---recovery-from-footshock.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>))</span>
-<span id="cb21-10"><a href="figure-5---recovery-from-footshock.html#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="figure-5---recovery-from-footshock.html#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
-<span id="cb21-12"><a href="figure-5---recovery-from-footshock.html#cb21-12" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
-<span id="cb21-13"><a href="figure-5---recovery-from-footshock.html#cb21-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="figure-5---recovery-from-footshock.html#cb20-1" aria-hidden="true" tabindex="-1"></a>L_Male<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb20-2"><a href="figure-5---recovery-from-footshock.html#cb20-2" aria-hidden="true" tabindex="-1"></a>L_Female<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb20-3"><a href="figure-5---recovery-from-footshock.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="figure-5---recovery-from-footshock.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the left paws</span></span>
+<span id="cb20-5"><a href="figure-5---recovery-from-footshock.html#cb20-5" aria-hidden="true" tabindex="-1"></a>left_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(L_Male,L_Female)</span>
+<span id="cb20-6"><a href="figure-5---recovery-from-footshock.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="figure-5---recovery-from-footshock.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to long form</span></span>
+<span id="cb20-8"><a href="figure-5---recovery-from-footshock.html#cb20-8" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> left_paws <span class="sc">%&gt;%</span></span>
+<span id="cb20-9"><a href="figure-5---recovery-from-footshock.html#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>))</span>
+<span id="cb20-10"><a href="figure-5---recovery-from-footshock.html#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="figure-5---recovery-from-footshock.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
+<span id="cb20-12"><a href="figure-5---recovery-from-footshock.html#cb20-12" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
+<span id="cb20-13"><a href="figure-5---recovery-from-footshock.html#cb20-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -324,23 +324,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="figure-5---recovery-from-footshock.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
-<span id="cb22-2"><a href="figure-5---recovery-from-footshock.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="figure-5---recovery-from-footshock.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
-<span id="cb22-4"><a href="figure-5---recovery-from-footshock.html#cb22-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb22-5"><a href="figure-5---recovery-from-footshock.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb22-6"><a href="figure-5---recovery-from-footshock.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
-<span id="cb22-7"><a href="figure-5---recovery-from-footshock.html#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="figure-5---recovery-from-footshock.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="figure-5---recovery-from-footshock.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
+<span id="cb21-2"><a href="figure-5---recovery-from-footshock.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="figure-5---recovery-from-footshock.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
+<span id="cb21-4"><a href="figure-5---recovery-from-footshock.html#cb21-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="figure-5---recovery-from-footshock.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="figure-5---recovery-from-footshock.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
+<span id="cb21-7"><a href="figure-5---recovery-from-footshock.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="figure-5---recovery-from-footshock.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_4cfqfzpec47gstagkpsb(i, j, css_id) {
-        var table = document.getElementById("tinytable_4cfqfzpec47gstagkpsb");
+      function styleCell_uw8gk1je51i81whojgt1(i, j, css_id) {
+        var table = document.getElementById("tinytable_uw8gk1je51i81whojgt1");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_4cfqfzpec47gstagkpsb');
+        var table = document.getElementById('tinytable_uw8gk1je51i81whojgt1');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -348,8 +348,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_4cfqfzpec47gstagkpsb(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_4cfqfzpec47gstagkpsb");
+      function spanCell_uw8gk1je51i81whojgt1(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_uw8gk1je51i81whojgt1");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -375,24 +375,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 0, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 1, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 2, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 3, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 4, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 5, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 6, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 7, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 8, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 9, 'tinytable_css_idt1erffzi50bmird9ahsv') })
-window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 10, 'tinytable_css_idt1erffzi50bmird9ahsv') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 0, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 1, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 2, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 3, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 4, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 5, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 6, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 7, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 8, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 9, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
+window.addEventListener('load', function () { styleCell_uw8gk1je51i81whojgt1(0, 10, 'tinytable_css_id0wu6uzjbt1yh3dnc3y38') })
     </script>
 
     <style>
-    .table td.tinytable_css_idt1erffzi50bmird9ahsv, .table th.tinytable_css_idt1erffzi50bmird9ahsv {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id0wu6uzjbt1yh3dnc3y38, .table th.tinytable_css_id0wu6uzjbt1yh3dnc3y38 {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_4cfqfzpec47gstagkpsb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_uw8gk1je51i81whojgt1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -545,21 +545,21 @@ window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="figure-5---recovery-from-footshock.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
-<span id="cb23-2"><a href="figure-5---recovery-from-footshock.html#cb23-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="figure-5---recovery-from-footshock.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb23-4"><a href="figure-5---recovery-from-footshock.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb23-5"><a href="figure-5---recovery-from-footshock.html#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="figure-5---recovery-from-footshock.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="figure-5---recovery-from-footshock.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
+<span id="cb22-2"><a href="figure-5---recovery-from-footshock.html#cb22-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="figure-5---recovery-from-footshock.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="figure-5---recovery-from-footshock.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb22-5"><a href="figure-5---recovery-from-footshock.html#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="figure-5---recovery-from-footshock.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_sxxjmaeh0zrsjc8k7oet(i, j, css_id) {
-        var table = document.getElementById("tinytable_sxxjmaeh0zrsjc8k7oet");
+      function styleCell_vn9439l8dgda3dgh2v7q(i, j, css_id) {
+        var table = document.getElementById("tinytable_vn9439l8dgda3dgh2v7q");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_sxxjmaeh0zrsjc8k7oet');
+        var table = document.getElementById('tinytable_vn9439l8dgda3dgh2v7q');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -567,8 +567,8 @@ window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_sxxjmaeh0zrsjc8k7oet(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_sxxjmaeh0zrsjc8k7oet");
+      function spanCell_vn9439l8dgda3dgh2v7q(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_vn9439l8dgda3dgh2v7q");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -594,24 +594,24 @@ window.addEventListener('load', function () { styleCell_4cfqfzpec47gstagkpsb(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 0, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 1, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 2, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 3, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 4, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 5, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 6, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 7, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 8, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 9, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
-window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 10, 'tinytable_css_idrfwq99tazxy4cyvgzf2h') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 0, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 1, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 2, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 3, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 4, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 5, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 6, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 7, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 8, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 9, 'tinytable_css_idvizl00dnopxe96tn41ov') })
+window.addEventListener('load', function () { styleCell_vn9439l8dgda3dgh2v7q(0, 10, 'tinytable_css_idvizl00dnopxe96tn41ov') })
     </script>
 
     <style>
-    .table td.tinytable_css_idrfwq99tazxy4cyvgzf2h, .table th.tinytable_css_idrfwq99tazxy4cyvgzf2h {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idvizl00dnopxe96tn41ov, .table th.tinytable_css_idvizl00dnopxe96tn41ov {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_sxxjmaeh0zrsjc8k7oet" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_vn9439l8dgda3dgh2v7q" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -764,21 +764,21 @@ window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="figure-5---recovery-from-footshock.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
-<span id="cb24-2"><a href="figure-5---recovery-from-footshock.html#cb24-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="figure-5---recovery-from-footshock.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="figure-5---recovery-from-footshock.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
-<span id="cb24-5"><a href="figure-5---recovery-from-footshock.html#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="figure-5---recovery-from-footshock.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="figure-5---recovery-from-footshock.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
+<span id="cb23-2"><a href="figure-5---recovery-from-footshock.html#cb23-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="figure-5---recovery-from-footshock.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="figure-5---recovery-from-footshock.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb23-5"><a href="figure-5---recovery-from-footshock.html#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="figure-5---recovery-from-footshock.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_gqbt97gaq35n9eeugaiz(i, j, css_id) {
-        var table = document.getElementById("tinytable_gqbt97gaq35n9eeugaiz");
+      function styleCell_y9tm884asvizn4772s7x(i, j, css_id) {
+        var table = document.getElementById("tinytable_y9tm884asvizn4772s7x");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_gqbt97gaq35n9eeugaiz');
+        var table = document.getElementById('tinytable_y9tm884asvizn4772s7x');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -786,8 +786,8 @@ window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_gqbt97gaq35n9eeugaiz(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_gqbt97gaq35n9eeugaiz");
+      function spanCell_y9tm884asvizn4772s7x(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_y9tm884asvizn4772s7x");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -813,24 +813,24 @@ window.addEventListener('load', function () { styleCell_sxxjmaeh0zrsjc8k7oet(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 0, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 1, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 2, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 3, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 4, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 5, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 6, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 7, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 8, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 9, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
-window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 10, 'tinytable_css_idpjxo0ynfunz9lvp79j3r') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 0, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 1, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 2, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 3, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 4, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 5, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 6, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 7, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 8, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 9, 'tinytable_css_id924hogg2y13ab62jbxc4') })
+window.addEventListener('load', function () { styleCell_y9tm884asvizn4772s7x(0, 10, 'tinytable_css_id924hogg2y13ab62jbxc4') })
     </script>
 
     <style>
-    .table td.tinytable_css_idpjxo0ynfunz9lvp79j3r, .table th.tinytable_css_idpjxo0ynfunz9lvp79j3r {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id924hogg2y13ab62jbxc4, .table th.tinytable_css_id924hogg2y13ab62jbxc4 {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_gqbt97gaq35n9eeugaiz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_y9tm884asvizn4772s7x" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -1376,19 +1376,19 @@ window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 
 </div>
 <div id="right-paws" class="section level3 unnumbered hasAnchor">
 <h3>Right Paws<a href="figure-5---recovery-from-footshock.html#right-paws" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="figure-5---recovery-from-footshock.html#cb25-1" aria-hidden="true" tabindex="-1"></a>R_Male<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
-<span id="cb25-2"><a href="figure-5---recovery-from-footshock.html#cb25-2" aria-hidden="true" tabindex="-1"></a>R_Female<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
-<span id="cb25-3"><a href="figure-5---recovery-from-footshock.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="figure-5---recovery-from-footshock.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the right paws</span></span>
-<span id="cb25-5"><a href="figure-5---recovery-from-footshock.html#cb25-5" aria-hidden="true" tabindex="-1"></a>right_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(R_Male,R_Female)</span>
-<span id="cb25-6"><a href="figure-5---recovery-from-footshock.html#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="figure-5---recovery-from-footshock.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to long form</span></span>
-<span id="cb25-8"><a href="figure-5---recovery-from-footshock.html#cb25-8" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> right_paws <span class="sc">%&gt;%</span></span>
-<span id="cb25-9"><a href="figure-5---recovery-from-footshock.html#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>))</span>
-<span id="cb25-10"><a href="figure-5---recovery-from-footshock.html#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="figure-5---recovery-from-footshock.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
-<span id="cb25-12"><a href="figure-5---recovery-from-footshock.html#cb25-12" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
-<span id="cb25-13"><a href="figure-5---recovery-from-footshock.html#cb25-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="figure-5---recovery-from-footshock.html#cb24-1" aria-hidden="true" tabindex="-1"></a>R_Male<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Male&quot;</span></span>
+<span id="cb24-2"><a href="figure-5---recovery-from-footshock.html#cb24-2" aria-hidden="true" tabindex="-1"></a>R_Female<span class="sc">$</span>Sex <span class="ot">&lt;-</span> <span class="st">&quot;Female&quot;</span></span>
+<span id="cb24-3"><a href="figure-5---recovery-from-footshock.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="figure-5---recovery-from-footshock.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the right paws</span></span>
+<span id="cb24-5"><a href="figure-5---recovery-from-footshock.html#cb24-5" aria-hidden="true" tabindex="-1"></a>right_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(R_Male,R_Female)</span>
+<span id="cb24-6"><a href="figure-5---recovery-from-footshock.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="figure-5---recovery-from-footshock.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to long form</span></span>
+<span id="cb24-8"><a href="figure-5---recovery-from-footshock.html#cb24-8" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> right_paws <span class="sc">%&gt;%</span></span>
+<span id="cb24-9"><a href="figure-5---recovery-from-footshock.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>))</span>
+<span id="cb24-10"><a href="figure-5---recovery-from-footshock.html#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="figure-5---recovery-from-footshock.html#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
+<span id="cb24-12"><a href="figure-5---recovery-from-footshock.html#cb24-12" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
+<span id="cb24-13"><a href="figure-5---recovery-from-footshock.html#cb24-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1467,23 +1467,23 @@ window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="figure-5---recovery-from-footshock.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
-<span id="cb26-2"><a href="figure-5---recovery-from-footshock.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="figure-5---recovery-from-footshock.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
-<span id="cb26-4"><a href="figure-5---recovery-from-footshock.html#cb26-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb26-5"><a href="figure-5---recovery-from-footshock.html#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb26-6"><a href="figure-5---recovery-from-footshock.html#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
-<span id="cb26-7"><a href="figure-5---recovery-from-footshock.html#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="figure-5---recovery-from-footshock.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="figure-5---recovery-from-footshock.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
+<span id="cb25-2"><a href="figure-5---recovery-from-footshock.html#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="figure-5---recovery-from-footshock.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
+<span id="cb25-4"><a href="figure-5---recovery-from-footshock.html#cb25-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="figure-5---recovery-from-footshock.html#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="figure-5---recovery-from-footshock.html#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
+<span id="cb25-7"><a href="figure-5---recovery-from-footshock.html#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="figure-5---recovery-from-footshock.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_nz3odzx2g53axuv3dd5h(i, j, css_id) {
-        var table = document.getElementById("tinytable_nz3odzx2g53axuv3dd5h");
+      function styleCell_22snz4ejigadqqqase7b(i, j, css_id) {
+        var table = document.getElementById("tinytable_22snz4ejigadqqqase7b");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_nz3odzx2g53axuv3dd5h');
+        var table = document.getElementById('tinytable_22snz4ejigadqqqase7b');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1491,8 +1491,8 @@ window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_nz3odzx2g53axuv3dd5h(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_nz3odzx2g53axuv3dd5h");
+      function spanCell_22snz4ejigadqqqase7b(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_22snz4ejigadqqqase7b");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1518,24 +1518,24 @@ window.addEventListener('load', function () { styleCell_gqbt97gaq35n9eeugaiz(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 0, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 1, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 2, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 3, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 4, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 5, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 6, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 7, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 8, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 9, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
-window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 10, 'tinytable_css_id10ntqbmdysldj2x2bih8') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 0, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 1, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 2, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 3, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 4, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 5, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 6, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 7, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 8, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 9, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
+window.addEventListener('load', function () { styleCell_22snz4ejigadqqqase7b(0, 10, 'tinytable_css_idzihivq50u62x6kbnyy3h') })
     </script>
 
     <style>
-    .table td.tinytable_css_id10ntqbmdysldj2x2bih8, .table th.tinytable_css_id10ntqbmdysldj2x2bih8 {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idzihivq50u62x6kbnyy3h, .table th.tinytable_css_idzihivq50u62x6kbnyy3h {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_nz3odzx2g53axuv3dd5h" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_22snz4ejigadqqqase7b" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -1688,21 +1688,21 @@ window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="figure-5---recovery-from-footshock.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
-<span id="cb27-2"><a href="figure-5---recovery-from-footshock.html#cb27-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="figure-5---recovery-from-footshock.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="figure-5---recovery-from-footshock.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb27-5"><a href="figure-5---recovery-from-footshock.html#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="figure-5---recovery-from-footshock.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="figure-5---recovery-from-footshock.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
+<span id="cb26-2"><a href="figure-5---recovery-from-footshock.html#cb26-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="figure-5---recovery-from-footshock.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="figure-5---recovery-from-footshock.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb26-5"><a href="figure-5---recovery-from-footshock.html#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="figure-5---recovery-from-footshock.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_cnsfxdgzl5g5tz8plhs6(i, j, css_id) {
-        var table = document.getElementById("tinytable_cnsfxdgzl5g5tz8plhs6");
+      function styleCell_ki0v742w0wmmyfrta9gw(i, j, css_id) {
+        var table = document.getElementById("tinytable_ki0v742w0wmmyfrta9gw");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_cnsfxdgzl5g5tz8plhs6');
+        var table = document.getElementById('tinytable_ki0v742w0wmmyfrta9gw');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1710,8 +1710,8 @@ window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_cnsfxdgzl5g5tz8plhs6(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_cnsfxdgzl5g5tz8plhs6");
+      function spanCell_ki0v742w0wmmyfrta9gw(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ki0v742w0wmmyfrta9gw");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1737,24 +1737,24 @@ window.addEventListener('load', function () { styleCell_nz3odzx2g53axuv3dd5h(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 0, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 1, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 2, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 3, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 4, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 5, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 6, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 7, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 8, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 9, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
-window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 10, 'tinytable_css_idauyau6jc3vk4abqo2v7b') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 0, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 1, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 2, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 3, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 4, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 5, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 6, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 7, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 8, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 9, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
+window.addEventListener('load', function () { styleCell_ki0v742w0wmmyfrta9gw(0, 10, 'tinytable_css_idx3v2trgvxksz5tm0gpds') })
     </script>
 
     <style>
-    .table td.tinytable_css_idauyau6jc3vk4abqo2v7b, .table th.tinytable_css_idauyau6jc3vk4abqo2v7b {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idx3v2trgvxksz5tm0gpds, .table th.tinytable_css_idx3v2trgvxksz5tm0gpds {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_cnsfxdgzl5g5tz8plhs6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_ki0v742w0wmmyfrta9gw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -1907,21 +1907,21 @@ window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="figure-5---recovery-from-footshock.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
-<span id="cb28-2"><a href="figure-5---recovery-from-footshock.html#cb28-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="figure-5---recovery-from-footshock.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="figure-5---recovery-from-footshock.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
-<span id="cb28-5"><a href="figure-5---recovery-from-footshock.html#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="figure-5---recovery-from-footshock.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="figure-5---recovery-from-footshock.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
+<span id="cb27-2"><a href="figure-5---recovery-from-footshock.html#cb27-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="figure-5---recovery-from-footshock.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="figure-5---recovery-from-footshock.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb27-5"><a href="figure-5---recovery-from-footshock.html#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="figure-5---recovery-from-footshock.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_l182cdvnqj4lhrowiz4b(i, j, css_id) {
-        var table = document.getElementById("tinytable_l182cdvnqj4lhrowiz4b");
+      function styleCell_ab5ces8er7p1kcbqxbhu(i, j, css_id) {
+        var table = document.getElementById("tinytable_ab5ces8er7p1kcbqxbhu");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_l182cdvnqj4lhrowiz4b');
+        var table = document.getElementById('tinytable_ab5ces8er7p1kcbqxbhu');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1929,8 +1929,8 @@ window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_l182cdvnqj4lhrowiz4b(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_l182cdvnqj4lhrowiz4b");
+      function spanCell_ab5ces8er7p1kcbqxbhu(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ab5ces8er7p1kcbqxbhu");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1956,24 +1956,24 @@ window.addEventListener('load', function () { styleCell_cnsfxdgzl5g5tz8plhs6(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 0, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 1, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 2, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 3, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 4, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 5, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 6, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 7, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 8, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 9, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
-window.addEventListener('load', function () { styleCell_l182cdvnqj4lhrowiz4b(0, 10, 'tinytable_css_idvzukcfe1o2udfcjlse7r') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 0, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 1, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 2, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 3, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 4, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 5, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 6, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 7, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 8, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 9, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
+window.addEventListener('load', function () { styleCell_ab5ces8er7p1kcbqxbhu(0, 10, 'tinytable_css_idmcigni1jybrqyhk9u8m1') })
     </script>
 
     <style>
-    .table td.tinytable_css_idvzukcfe1o2udfcjlse7r, .table th.tinytable_css_idvzukcfe1o2udfcjlse7r {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idmcigni1jybrqyhk9u8m1, .table th.tinytable_css_idmcigni1jybrqyhk9u8m1 {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_l182cdvnqj4lhrowiz4b" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_ab5ces8er7p1kcbqxbhu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>

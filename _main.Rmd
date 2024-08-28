@@ -677,7 +677,7 @@ CFA-injected Female mice exhibited:
 output: html_document
 ---
 
-```{r, Chunk Options}
+```{r, include=FALSE}
 knitr::opts_chunk$set(message = FALSE, 
                       warning = FALSE,
                       echo = FALSE,
@@ -2196,7 +2196,7 @@ summary.aov(fit)
 
 
 
-<!--chapter:end:06-Supplemental_Figs.Rmd-->
+<!--chapter:end:06-Supp_1.Rmd-->
 
 ---
 output: html_document
@@ -2420,7 +2420,7 @@ These findings suggest that there may be sex differences in the timecourese of r
 
 
 
-<!--chapter:end:07-S_2.Rmd-->
+<!--chapter:end:07-Supp_2.Rmd-->
 
 ---
 output: html_document
@@ -2560,7 +2560,7 @@ tt(b)
 
 
 
-<!--chapter:end:08-S_3.Rmd-->
+<!--chapter:end:08-Supp_3.Rmd-->
 
 ---
 output: html_document
@@ -2799,5 +2799,5 @@ tt(c)
 Similar statistical results for the left and right hind paws indicate that the expression of hyperalgesic priming is not limited to the site of previous injury in male mice. 
 
 
-<!--chapter:end:09-S_4.Rmd-->
+<!--chapter:end:09-Supp_4.Rmd-->
 

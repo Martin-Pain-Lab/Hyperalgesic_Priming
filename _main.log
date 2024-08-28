@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.27)  28 AUG 2024 08:23
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.27)  28 AUG 2024 08:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,7 +946,7 @@ Overfull \vbox (236.848pt too high) has occurred while \output is active []
 File: Figs/3_VF_CFA_Recovery.png Graphic file (type bmp)
 <Figs/3_VF_CFA_Recovery.png>
 
-Overfull \hbox (82.80939pt too wide) in paragraph at lines 416--416
+Overfull \hbox (82.80939pt too wide) in paragraph at lines 406--406
  [] 
  []
 
@@ -973,7 +973,7 @@ Overfull \vbox (215.95363pt too high) has occurred while \output is active []
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.507 \end
+l.497 \end
           {tblr} 
 Here is how much of TeX's memory you used:
  22850 strings out of 476233

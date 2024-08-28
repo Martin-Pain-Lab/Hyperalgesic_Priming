@@ -231,17 +231,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="statistics" class="section level2 unnumbered hasAnchor">
 <h2>Statistics<a href="figure-4---recovery-from-pge-2-injection.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the left paws</span></span>
-<span id="cb17-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-2" aria-hidden="true" tabindex="-1"></a>left_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(L_Male,L_Female)</span>
-<span id="cb17-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove those that did not receive PGE2 and switch to long form</span></span>
-<span id="cb17-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-5" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> left_paws <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PGE2 <span class="sc">==</span> <span class="st">&quot;PGE2&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-7"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;PGE2&quot;</span>))</span>
-<span id="cb17-8"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
-<span id="cb17-10"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-10" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
-<span id="cb17-11"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the left paws</span></span>
+<span id="cb16-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-2" aria-hidden="true" tabindex="-1"></a>left_paws <span class="ot">&lt;-</span> <span class="fu">rbind</span>(L_Male,L_Female)</span>
+<span id="cb16-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove those that did not receive PGE2 and switch to long form</span></span>
+<span id="cb16-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-5" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> left_paws <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PGE2 <span class="sc">==</span> <span class="st">&quot;PGE2&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;CFA&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;PGE2&quot;</span>))</span>
+<span id="cb16-8"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 3-way ANOVA: Sex X CFA X Day of testing (VF)</span></span>
+<span id="cb16-10"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-10" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data=</span>a,<span class="at">dv=</span>value,<span class="at">between=</span><span class="fu">c</span>(Sex,CFA),<span class="at">within=</span>variable,<span class="at">wid=</span>ID)</span>
+<span id="cb16-11"><a href="figure-4---recovery-from-pge-2-injection.html#cb16-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">get_anova_table</span>(b))</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -320,23 +320,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
-<span id="cb18-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
-<span id="cb18-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb18-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb18-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
-<span id="cb18-7"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run both sets of follow ups: </span></span>
+<span id="cb17-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of CFA on each day of testing split by sex</span></span>
+<span id="cb17-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>CFA)</span>
+<span id="cb17-7"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="figure-4---recovery-from-pge-2-injection.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_p7ozqma5pd42mbz0xmb7(i, j, css_id) {
-        var table = document.getElementById("tinytable_p7ozqma5pd42mbz0xmb7");
+      function styleCell_8p2pm9mhyk1cktmjh1ol(i, j, css_id) {
+        var table = document.getElementById("tinytable_8p2pm9mhyk1cktmjh1ol");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_p7ozqma5pd42mbz0xmb7');
+        var table = document.getElementById('tinytable_8p2pm9mhyk1cktmjh1ol');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -344,8 +344,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_p7ozqma5pd42mbz0xmb7(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_p7ozqma5pd42mbz0xmb7");
+      function spanCell_8p2pm9mhyk1cktmjh1ol(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_8p2pm9mhyk1cktmjh1ol");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -371,24 +371,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 0, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 1, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 2, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 3, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 4, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 5, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 6, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 7, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 8, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 9, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
-window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 10, 'tinytable_css_idzmtbghic5zrujfeffzbn') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 0, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 1, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 2, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 3, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 4, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 5, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 6, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 7, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 8, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 9, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
+window.addEventListener('load', function () { styleCell_8p2pm9mhyk1cktmjh1ol(0, 10, 'tinytable_css_idp1k2yeeidoxw5zfy03ru') })
     </script>
 
     <style>
-    .table td.tinytable_css_idzmtbghic5zrujfeffzbn, .table th.tinytable_css_idzmtbghic5zrujfeffzbn {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idp1k2yeeidoxw5zfy03ru, .table th.tinytable_css_idp1k2yeeidoxw5zfy03ru {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_p7ozqma5pd42mbz0xmb7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_8p2pm9mhyk1cktmjh1ol" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -489,21 +489,21 @@ window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
-<span id="cb19-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb19-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of Sex on each day of testing split by CFA history</span></span>
+<span id="cb18-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-2" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,variable) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb18-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_nbldzgt14s3xvga91k3f(i, j, css_id) {
-        var table = document.getElementById("tinytable_nbldzgt14s3xvga91k3f");
+      function styleCell_0vqwgtsh6n3tnf54yip0(i, j, css_id) {
+        var table = document.getElementById("tinytable_0vqwgtsh6n3tnf54yip0");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_nbldzgt14s3xvga91k3f');
+        var table = document.getElementById('tinytable_0vqwgtsh6n3tnf54yip0');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -511,8 +511,8 @@ window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_nbldzgt14s3xvga91k3f(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_nbldzgt14s3xvga91k3f");
+      function spanCell_0vqwgtsh6n3tnf54yip0(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0vqwgtsh6n3tnf54yip0");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -538,24 +538,24 @@ window.addEventListener('load', function () { styleCell_p7ozqma5pd42mbz0xmb7(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 0, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 1, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 2, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 3, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 4, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 5, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 6, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 7, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 8, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 9, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
-window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 10, 'tinytable_css_id9t0iglv5jhvzbqq47tk3') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 0, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 1, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 2, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 3, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 4, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 5, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 6, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 7, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 8, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 9, 'tinytable_css_id4aktcenn7freipgv0zwh') })
+window.addEventListener('load', function () { styleCell_0vqwgtsh6n3tnf54yip0(0, 10, 'tinytable_css_id4aktcenn7freipgv0zwh') })
     </script>
 
     <style>
-    .table td.tinytable_css_id9t0iglv5jhvzbqq47tk3, .table th.tinytable_css_id9t0iglv5jhvzbqq47tk3 {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_id4aktcenn7freipgv0zwh, .table th.tinytable_css_id4aktcenn7freipgv0zwh {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_nbldzgt14s3xvga91k3f" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_0vqwgtsh6n3tnf54yip0" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -656,21 +656,21 @@ window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 
       </table>
     </div>
 <!-- hack to avoid NA insertion in last line -->
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
-<span id="cb20-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
-<span id="cb20-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effect of DAY within each group</span></span>
+<span id="cb19-2"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CFA,Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>variable,<span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb19-5"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="figure-4---recovery-from-pge-2-injection.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(d)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_v8q771w25emvnee5jcty(i, j, css_id) {
-        var table = document.getElementById("tinytable_v8q771w25emvnee5jcty");
+      function styleCell_5481ou0xvpmko3okelut(i, j, css_id) {
+        var table = document.getElementById("tinytable_5481ou0xvpmko3okelut");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_v8q771w25emvnee5jcty');
+        var table = document.getElementById('tinytable_5481ou0xvpmko3okelut');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -678,8 +678,8 @@ window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_v8q771w25emvnee5jcty(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_v8q771w25emvnee5jcty");
+      function spanCell_5481ou0xvpmko3okelut(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_5481ou0xvpmko3okelut");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -705,24 +705,24 @@ window.addEventListener('load', function () { styleCell_nbldzgt14s3xvga91k3f(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 0, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 1, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 2, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 3, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 4, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 5, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 6, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 7, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 8, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 9, 'tinytable_css_idfu266bk2lq61fzsia38r') })
-window.addEventListener('load', function () { styleCell_v8q771w25emvnee5jcty(0, 10, 'tinytable_css_idfu266bk2lq61fzsia38r') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 0, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 1, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 2, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 3, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 4, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 5, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 6, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 7, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 8, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 9, 'tinytable_css_idl1qybwhewopm98i7xfav') })
+window.addEventListener('load', function () { styleCell_5481ou0xvpmko3okelut(0, 10, 'tinytable_css_idl1qybwhewopm98i7xfav') })
     </script>
 
     <style>
-    .table td.tinytable_css_idfu266bk2lq61fzsia38r, .table th.tinytable_css_idfu266bk2lq61fzsia38r {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idl1qybwhewopm98i7xfav, .table th.tinytable_css_idl1qybwhewopm98i7xfav {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_v8q771w25emvnee5jcty" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_5481ou0xvpmko3okelut" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>

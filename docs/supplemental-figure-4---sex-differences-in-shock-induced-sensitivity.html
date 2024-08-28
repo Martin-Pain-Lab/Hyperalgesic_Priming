@@ -231,14 +231,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="statistics-5" class="section level2 unnumbered hasAnchor">
 <h2>Statistics<a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#statistics-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CFA-primed: Left Paws</span></span>
-<span id="cb36-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> Left_data <span class="sc">%&gt;%</span></span>
-<span id="cb36-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;CFA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>)</span>
-<span id="cb36-6"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data=</span>a,value<span class="sc">~</span>variable<span class="sc">*</span>Sex)</span>
-<span id="cb36-8"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CFA-primed: Left Paws</span></span>
+<span id="cb35-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> Left_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;CFA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>)</span>
+<span id="cb35-6"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data=</span>a,value<span class="sc">~</span>variable<span class="sc">*</span>Sex)</span>
+<span id="cb35-8"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value               Pr(&gt;F)    
 ## variable      4 2.6377  0.6594   36.44 &lt; 0.0000000000000002 ***
 ## Sex           1 0.4122  0.4122   22.78         0.0000096220 ***
@@ -246,20 +246,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals    70 1.2666  0.0181                                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb38-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb37-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb37-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_40z6yt4vmjc81y2y4kz9(i, j, css_id) {
-        var table = document.getElementById("tinytable_40z6yt4vmjc81y2y4kz9");
+      function styleCell_49ili6gzi1vugmu6vfkq(i, j, css_id) {
+        var table = document.getElementById("tinytable_49ili6gzi1vugmu6vfkq");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_40z6yt4vmjc81y2y4kz9');
+        var table = document.getElementById('tinytable_49ili6gzi1vugmu6vfkq');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -267,8 +267,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_40z6yt4vmjc81y2y4kz9(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_40z6yt4vmjc81y2y4kz9");
+      function spanCell_49ili6gzi1vugmu6vfkq(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_49ili6gzi1vugmu6vfkq");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -294,23 +294,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 0, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 1, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 2, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 3, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 4, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 5, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 6, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 7, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 8, 'tinytable_css_idnpillaecdo63wexhcsu7') })
-window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 9, 'tinytable_css_idnpillaecdo63wexhcsu7') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 0, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 1, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 2, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 3, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 4, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 5, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 6, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 7, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 8, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
+window.addEventListener('load', function () { styleCell_49ili6gzi1vugmu6vfkq(0, 9, 'tinytable_css_idu5tfh5t3cp8iju9v88ix') })
     </script>
 
     <style>
-    .table td.tinytable_css_idnpillaecdo63wexhcsu7, .table th.tinytable_css_idnpillaecdo63wexhcsu7 {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idu5tfh5t3cp8iju9v88ix, .table th.tinytable_css_idu5tfh5t3cp8iju9v88ix {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_40z6yt4vmjc81y2y4kz9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_49ili6gzi1vugmu6vfkq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -396,14 +396,14 @@ window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 
 <li><p>Both Three and 24 hours after footshock, CFA-primed males exhibit more hypersensitvity than CFA-primed females.</p></li>
 <li><p>There are no group differences at baseline, 3 days post shock, or 7 days post shock.</p></li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CFA-primed: Right Paws</span></span>
-<span id="cb39-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> Right_data <span class="sc">%&gt;%</span></span>
-<span id="cb39-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;CFA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>)</span>
-<span id="cb39-6"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data=</span>a,value<span class="sc">~</span>variable<span class="sc">*</span>Sex)</span>
-<span id="cb39-8"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CFA-primed: Right Paws</span></span>
+<span id="cb38-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> Right_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">melt</span>(<span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Sex&quot;</span>,<span class="st">&quot;CFA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>)</span>
+<span id="cb38-6"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data=</span>a,value<span class="sc">~</span>variable<span class="sc">*</span>Sex)</span>
+<span id="cb38-8"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value            Pr(&gt;F)    
 ## variable      4 2.0363  0.5091   27.21 0.000000000000123 ***
 ## Sex           1 0.6361  0.6361   34.00 0.000000155168408 ***
@@ -411,20 +411,20 @@ window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 
 ## Residuals    70 1.3095  0.0187                              
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb41-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb41-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb41-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb40-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb40-4"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="supplemental-figure-4---sex-differences-in-shock-induced-sensitivity.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(c)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_afyy096hzomg1klfg2d4(i, j, css_id) {
-        var table = document.getElementById("tinytable_afyy096hzomg1klfg2d4");
+      function styleCell_jk53d8ct6za585swc3oe(i, j, css_id) {
+        var table = document.getElementById("tinytable_jk53d8ct6za585swc3oe");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_afyy096hzomg1klfg2d4');
+        var table = document.getElementById('tinytable_jk53d8ct6za585swc3oe');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -432,8 +432,8 @@ window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_afyy096hzomg1klfg2d4(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_afyy096hzomg1klfg2d4");
+      function spanCell_jk53d8ct6za585swc3oe(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_jk53d8ct6za585swc3oe");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -459,23 +459,23 @@ window.addEventListener('load', function () { styleCell_40z6yt4vmjc81y2y4kz9(0, 
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 0, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 1, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 2, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 3, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 4, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 5, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 6, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 7, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 8, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
-window.addEventListener('load', function () { styleCell_afyy096hzomg1klfg2d4(0, 9, 'tinytable_css_idg8m3v89377qjv6la5v2a') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 0, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 1, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 2, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 3, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 4, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 5, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 6, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 7, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 8, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
+window.addEventListener('load', function () { styleCell_jk53d8ct6za585swc3oe(0, 9, 'tinytable_css_idyu8ie00xlsq71btz7e8h') })
     </script>
 
     <style>
-    .table td.tinytable_css_idg8m3v89377qjv6la5v2a, .table th.tinytable_css_idg8m3v89377qjv6la5v2a {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idyu8ie00xlsq71btz7e8h, .table th.tinytable_css_idyu8ie00xlsq71btz7e8h {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_afyy096hzomg1klfg2d4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_jk53d8ct6za585swc3oe" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -602,7 +602,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/09-S_4.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/09-Supp_4.Rmd",
 "text": "Edit"
 },
 "history": {

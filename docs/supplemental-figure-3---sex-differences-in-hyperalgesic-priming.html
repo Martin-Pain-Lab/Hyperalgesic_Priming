@@ -235,23 +235,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="statistics-4" class="section level2 unnumbered hasAnchor">
 <h2>Statistics<a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#statistics-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> m_Left[m_Left<span class="sc">$</span>CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>, ]</span>
-<span id="cb35-2"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> m_Left <span class="sc">%&gt;%</span></span>
-<span id="cb35-4"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb35-5"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
-<span id="cb35-6"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
-<span id="cb35-7"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-8"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> m_Left[m_Left<span class="sc">$</span>CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>, ]</span>
+<span id="cb34-2"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> m_Left <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CFA <span class="sc">==</span> <span class="st">&quot;CFA&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span></span>
+<span id="cb34-6"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(value<span class="sc">~</span>Sex)</span>
+<span id="cb34-7"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="supplemental-figure-3---sex-differences-in-hyperalgesic-priming.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tt</span>(b)</span></code></pre></div>
 <!-- preamble start -->
 
     <script>
-      function styleCell_lxtxarikljk0gkgcx96f(i, j, css_id) {
-        var table = document.getElementById("tinytable_lxtxarikljk0gkgcx96f");
+      function styleCell_m1zxyeahp1k6bq8m5rvw(i, j, css_id) {
+        var table = document.getElementById("tinytable_m1zxyeahp1k6bq8m5rvw");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_lxtxarikljk0gkgcx96f');
+        var table = document.getElementById('tinytable_m1zxyeahp1k6bq8m5rvw');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -259,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_lxtxarikljk0gkgcx96f(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_lxtxarikljk0gkgcx96f");
+      function spanCell_m1zxyeahp1k6bq8m5rvw(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_m1zxyeahp1k6bq8m5rvw");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -286,23 +286,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         targetCell.rowSpan = rowspan;
         targetCell.colSpan = colspan;
       }
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 0, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 1, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 2, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 3, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 4, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 5, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 6, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 7, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 8, 'tinytable_css_idzeexiad4tu0prny3l22t') })
-window.addEventListener('load', function () { styleCell_lxtxarikljk0gkgcx96f(0, 9, 'tinytable_css_idzeexiad4tu0prny3l22t') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 0, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 1, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 2, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 3, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 4, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 5, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 6, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 7, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 8, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
+window.addEventListener('load', function () { styleCell_m1zxyeahp1k6bq8m5rvw(0, 9, 'tinytable_css_idyb6ay8kcscwtsdkeyurl') })
     </script>
 
     <style>
-    .table td.tinytable_css_idzeexiad4tu0prny3l22t, .table th.tinytable_css_idzeexiad4tu0prny3l22t {  border-bottom: solid 0.1em #d3d8dc; }
+    .table td.tinytable_css_idyb6ay8kcscwtsdkeyurl, .table th.tinytable_css_idyb6ay8kcscwtsdkeyurl {  border-bottom: solid 0.1em #d3d8dc; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_lxtxarikljk0gkgcx96f" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_m1zxyeahp1k6bq8m5rvw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -403,7 +403,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-S_3.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-Supp_3.Rmd",
 "text": "Edit"
 },
 "history": {
